@@ -1,11 +1,12 @@
 //Coder: Jess
-//Code for the behavior of placing down a trap
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Code for the behavior of placing down a trap.
+/// </summary>
 public class PlacingTrapBehavior : MonoBehaviour
 {
     [Tooltip("Assign in editor.\nThe trap that will be placed by this instance of TrapPlacing.")]
@@ -19,7 +20,7 @@ public class PlacingTrapBehavior : MonoBehaviour
     void Update()
     {
 
-        //TODO: Move the trap around either using arrows keys or mouse or both
+        //TODO: Move the trap around either using raycast and mouse
 
 
         if (Input.GetKeyUp(KeyCode.KeypadEnter))
