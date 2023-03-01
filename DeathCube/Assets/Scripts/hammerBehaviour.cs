@@ -8,20 +8,41 @@ public class hammerBehaviour : MonoBehaviour
     public bool isHammerSwingingDown;
 
     public float targetSlammedRotation;
-    public float rotationSpeed;
+    public float hammerRotationSpeed;
+    public float hammerRotationAmt;
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.rotation.x > targetSlammedRotation)
+        canHammerSwingDown = !isHammerSwingingDown;
+
+        if(Input.GetKeyDown(KeyCode.A) && canHammerSwingDown)
         {
-            transform.Rotate(rotationSpeed * Time.deltaTime, transform.rotation.y, transform.rotation.z);
+            StartCoroutine(spinHammer());
         }
     }
 
     public IEnumerator spinHammer()
     {
+        isHammerSwingingDown = true;
+        for (int i = 0; i < hammerRotationAmt; i++)
+        {
+            transform.Rotate(hammerRotationSpeed * Time.deltaTime, transform.rotation.y, transform.rotation.z);
+            yield return new WaitForSeconds(0.005f);
+        }
         yield return new WaitForSeconds(.001f);
+        StartCoroutine(spinHammerBackUp());
+    }
+
+    public IEnumerator spinHammerBackUp()
+    {
+        for (int i = 0; i < hammerRotationAmt; i++)
+        {
+            transform.Rotate(-hammerRotationSpeed * Time.deltaTime, transform.rotation.y, transform.rotation.z);
+            yield return new WaitForSeconds(0.005f);
+        }
+        yield return new WaitForSeconds(.001f);
+        isHammerSwingingDown = false;
     }
 
     /*
