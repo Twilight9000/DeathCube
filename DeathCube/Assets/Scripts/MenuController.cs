@@ -21,7 +21,6 @@ public class MenuController : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Loads the Trap Setting scene.
     /// </summary>
