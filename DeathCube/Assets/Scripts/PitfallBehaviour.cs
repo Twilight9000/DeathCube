@@ -106,19 +106,25 @@ public class PitfallBehaviour : MonoBehaviour
         door1.gameObject.SetActive(false);
         door2.gameObject.SetActive(false);
 
-        door1.transform.rotation = new Quaternion(0, 0, 0, 0);
-        door2.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-    }
-
-    public void ResetTrap()
-    {
+        yield return new WaitForSeconds(4);
 
         door1.gameObject.SetActive(true);
         door2.gameObject.SetActive(true);
 
-        down = false;
+        for (int i = 0; i < 75; i++)
+        {
 
+            door1.transform.Rotate(0, 0, -rot / 10 * Time.fixedDeltaTime);
+            door2.transform.Rotate(0, 0, rot / 10 * Time.fixedDeltaTime);
+
+            yield return new WaitForFixedUpdate();
+
+        }
+
+        door1.transform.rotation = new Quaternion(0, 0, 0, 0);
+        door2.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        down = false;
         initial = true;
 
     }
