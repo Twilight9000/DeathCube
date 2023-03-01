@@ -11,6 +11,17 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     /// <summary>
+    /// Calls to quit the game if Escape is pressed.
+    /// </summary>
+    private void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            Quit();
+        }
+    }
+
+    /// <summary>
     /// Loads the Trap Setting scene.
     /// </summary>
     public void LoadChooseTraps()
@@ -40,6 +51,15 @@ public class MenuController : MonoBehaviour
     public void LoadEnding()
     {
         SceneManager.LoadScene("Ending");
+    }
+
+    /// <summary>
+    /// Quits the game.
+    /// </summary>
+    public void Quit()
+    {
+        Application.Quit();
+        print("application quits");
     }
 
 }
