@@ -57,7 +57,6 @@ public class GameplayGameController : MonoBehaviour
         timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
 
         runnerNumber = PlayerPrefs.GetInt("WhoIsRunner");
-        PlayerPrefs.SetInt("WhoIsRunner", runnerNumber++);
 
 
         timer = 0;
@@ -105,12 +104,30 @@ public class GameplayGameController : MonoBehaviour
 
     }
 
+
     /// <summary>
-    /// Called when the scene ends. Loads the appropriate scene according to the runnerNumber value, which is connected to the WhoIsRunner PlayerPref.
+    /// Called when the scene ends. Saves PlayerPref values of what player is active and the time score of each player.
+    /// Loads the appropriate scene according to the runnerNumber value, which is connected to the WhoIsRunner PlayerPref.
     /// </summary>
     public void EndOfScene()
     {
+        if (runnerNumber == 1)
+        {
+            PlayerPrefs.SetFloat("Player1Time", timer);
+        }
+        else if (runnerNumber == 2)
+        {
+            PlayerPrefs.SetFloat("Player2Time", timer);
+        }
+        else
+        {
+            Debug.LogError("runnerNumber is out of bounds! :(");
+        }
+
+
+        PlayerPrefs.SetInt("WhoIsRunner", runnerNumber++);
         PlayerPrefs.Save();
+
 
         if (runnerNumber > 2)
         {
@@ -122,7 +139,6 @@ public class GameplayGameController : MonoBehaviour
         }
 
     }
-
 
 
 }
