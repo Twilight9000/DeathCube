@@ -41,7 +41,7 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""WASD"",
                     ""id"": ""472fee32-f205-484e-8afc-c29f4ee09988"",
-                    ""path"": ""3DVector"",
+                    ""path"": ""3DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -151,7 +151,7 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Controller Left Analog"",
                     ""id"": ""7b0f393d-1670-4236-82b8-0c43d5ae14aa"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
