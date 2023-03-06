@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7485381591746233002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7485381591746233046}
+  - component: {fileID: 7485381591746233003}
+  - component: {fileID: 7485381591746233047}
+  m_Layer: 0
+  m_Name: Hammer_KEEP
+  m_TagString: canHurtRunner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7485381591746233046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485381591746233002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.86, y: 0.49, z: 3.84}
+  m_LocalScale: {x: 1, y: 3.62, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2493831086321974112}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7485381591746233003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485381591746233002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5890903, z: 1.4004419}
+  m_Center: {x: 0, y: 0.2392452, z: -0.13876688}
+--- !u!114 &7485381591746233047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7485381591746233002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fc07479f8794878a7bc91cf7942ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canHammerSwingDown: 0
+  isHammerSwingingDown: 0
+  minimumHammerRotation: -140
+  maximumHammerRotation: 0
+  hammerRotationSpeed: -850
+  hammerRotationAmt: 20
+--- !u!1001 &7485381593882005626
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7485381591746233046}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.0856366
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.790004
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 31.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05407337
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.21859732
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.14999986
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_Name
+      value: urethane_hammer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+--- !u!4 &2493831086321974112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+  m_PrefabInstance: {fileID: 7485381593882005626}
+  m_PrefabAsset: {fileID: 0}
