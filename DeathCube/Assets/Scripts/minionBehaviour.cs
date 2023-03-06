@@ -7,10 +7,14 @@ public class minionBehaviour : MonoBehaviour
     public Rigidbody rb;
     public float speed;
     public GameObject target;
+    public float timeUntilMinionIsDestroyed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        target = GameObject.FindGameObjectWithTag("Player");
+
+        Destroy(gameObject, timeUntilMinionIsDestroyed);
     }
 
     private void FixedUpdate()
