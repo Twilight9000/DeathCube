@@ -11,16 +11,16 @@ public class SpikeBehaviour : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine("ActivateTrap");
+        //StartCoroutine("ActivateTrap");
     }
 
     public IEnumerator ActivateTrap()
     {
 
-        while (spikes.transform.position.y < -1.1f)
+        while (spikes.transform.position.y < -11f)
         {
 
-            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -1.1f, spikes.transform.position.z), speed);
+            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -11f, spikes.transform.position.z), speed);
 
         }
 
@@ -43,10 +43,10 @@ public class SpikeBehaviour : MonoBehaviour
     public IEnumerator SpikesDown()
     {
 
-        while (spikes.transform.position.y > -1.3f)
+        while (spikes.transform.position.y > -13f)
         {
 
-            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -1.3f, spikes.transform.position.z), speed);
+            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -13f, spikes.transform.position.z), speed);
 
             yield return new WaitForFixedUpdate();
 

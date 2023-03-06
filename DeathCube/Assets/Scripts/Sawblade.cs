@@ -9,13 +9,16 @@ public class Sawblade : MonoBehaviour
     public Vector3 endPos;
     private Vector3 startPos;
     float val;
+
+    bool enableStuff;
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
         val = startPos.y * -1;
         startPos.y += val;
-        StartCoroutine(BackAndForth());
+
+        //StartCoroutine(BackAndForth());
     }
 
     IEnumerator BackAndForth()

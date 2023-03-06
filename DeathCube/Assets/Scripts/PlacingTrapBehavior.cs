@@ -10,14 +10,13 @@ using UnityEngine;
 public class PlacingTrapBehavior : MonoBehaviour
 {
     [Tooltip("Assign in editor.\nThe trap that will be placed by this instance of TrapPlacing.")]
+    public List<GameObject> traps = new List<GameObject>();
     public GameObject trapBeingPlaced;
     public Camera cam;
     private Ray ray;
-    public GameObject g;
 
     private void Start()
     {
-       
 
     }
     /// <summary>
@@ -33,9 +32,13 @@ public class PlacingTrapBehavior : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            g.transform.position = hit.transform.position;
+            trapBeingPlaced.transform.position = hit.transform.position;
         }
+    }
 
+    public void PlaceTrap(int trapLoc)
+    {
+        trapBeingPlaced = Instantiate(traps[trapLoc]);
     }
 
 }
