@@ -22,6 +22,8 @@ public class Sawblade : MonoBehaviour
     {
         Vector3 up = transform.position;
         up.y += val;
+
+        print(val);
         while (transform.position != up)
         {
             transform.position = Vector3.MoveTowards(transform.position, up, Time.deltaTime * 5);
@@ -39,6 +41,14 @@ public class Sawblade : MonoBehaviour
             }
             transform.position = Vector3.MoveTowards(transform.position, endPos , Time.deltaTime * 15);
 
+            yield return new WaitForFixedUpdate();
+        }
+
+        up.y = val * -1;
+
+        while (transform.position != up)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, up, Time.deltaTime * 5);
             yield return new WaitForFixedUpdate();
         }
     }
