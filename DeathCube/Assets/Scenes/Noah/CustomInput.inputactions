@@ -28,30 +28,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Up",
-                    "id": "abeecab1-7e06-4e00-90b9-9739df337b94",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "6f48bd97-9d88-4929-8a85-e7b8617d85f3",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Left",
-                    "id": "8eb708bc-b3f6-44fb-8578-3ecefafe89fe",
+                    "id": "95c9f007-a2a2-4d25-9497-b2743209e480",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -62,7 +40,7 @@
                 },
                 {
                     "name": "Right",
-                    "id": "342f15c3-489b-49b7-8a42-3e525d6b5aa8",
+                    "id": "3bd8be1e-8c6d-4263-b1c9-38d1a9e40801",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -73,8 +51,8 @@
                 },
                 {
                     "name": "Forward",
-                    "id": "25bd45f3-4735-480e-b41c-e301341c475c",
-                    "path": "",
+                    "id": "f23672c6-0dae-4563-9502-3e96fa71768f",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -84,8 +62,8 @@
                 },
                 {
                     "name": "Backward",
-                    "id": "7a87e339-0d58-45e3-b4e5-0a24d1e2a06e",
-                    "path": "",
+                    "id": "f16f14d8-2bc5-4230-afad-a2c723064d9c",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -96,7 +74,7 @@
                 {
                     "name": "Arrow Keys",
                     "id": "4d4f5183-8adb-4c1d-8f32-667cad9fdb13",
-                    "path": "3DVector(mode=1)",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -149,31 +127,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Forward",
-                    "id": "6af4e54f-d1e1-409b-b26a-b592f3499430",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Backward",
-                    "id": "2367975f-677a-4580-82a6-d34677036dc3",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Controller Left Analog",
                     "id": "7b0f393d-1670-4236-82b8-0c43d5ae14aa",
-                    "path": "3DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -218,28 +174,6 @@
                     "name": "Right",
                     "id": "ece37a89-7fe3-4873-ae79-938675c1d474",
                     "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Forward",
-                    "id": "4cbc67cb-8337-4277-b8af-4e0d09e2cc02",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Backward",
-                    "id": "35d59af8-ed13-4f74-ba6d-1272516d213d",
-                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
