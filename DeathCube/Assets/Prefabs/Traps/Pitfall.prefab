@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2841918712929919525}
   - component: {fileID: 2841918712929919524}
   - component: {fileID: 2841918712929919527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pitfalldoor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 2841918713150861422}
   - component: {fileID: 2841918713150861417}
   - component: {fileID: 2841918713150861416}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PitfallDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2841918713336008135}
   - component: {fileID: 2841918713336008132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pitfall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2841918713336008134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 120.09357, y: -0.072, z: 57.087585}
+  m_LocalPosition: {x: -7.506588, y: -0.081, z: -60.81951}
   m_LocalScale: {x: 10, y: 1, z: 8.69565}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 2841918713396559149}
   - component: {fileID: 2841918713396559148}
   - component: {fileID: 2841918713396559151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pitfalldoor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2841918713779674850}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rotate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2841918713819501151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rotate1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

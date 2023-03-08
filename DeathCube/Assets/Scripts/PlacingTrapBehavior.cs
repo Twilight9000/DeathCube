@@ -27,7 +27,7 @@ public class PlacingTrapBehavior : MonoBehaviour
     private void Start()
     {
         layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
-        buttonsLeft = buttons.transform.childCount;
+        buttonsLeft = 5;
         TrapSpawner.trapsPlaced.Clear();
     }
     /// <summary>
@@ -85,6 +85,9 @@ public class PlacingTrapBehavior : MonoBehaviour
                 break;
             case (8):
                 layer_mask = LayerMask.GetMask("Ceiling Trap");
+                break;
+            default:
+                layer_mask = LayerMask.GetMask("Floor Trap");
                 break;
         }
         print(traps[trapLoc].layer.ToString());
