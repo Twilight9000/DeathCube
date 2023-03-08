@@ -31,7 +31,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
             UnInvincible();
         }
 
-        if (health <= 0)
+        if (healthAmount <= 0)
         {
             gc.EndOfScene();
         }
