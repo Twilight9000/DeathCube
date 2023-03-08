@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private CustomInput input = null;
     private Rigidbody rb = null;
     private Vector3 moveVector = Vector3.zero;
+    private Vector3 jumpvector = Vector3.zero;
     public float moveSpeed = 10f;
 
     // Start is called before the first frame update
@@ -42,5 +43,10 @@ public class PlayerMovement : MonoBehaviour
     void OnMovementCancelled(InputAction.CallbackContext context)
     {
         moveVector = Vector3.zero;
+    }
+
+    void OnJump(InputAction.CallbackContext context)
+    {
+        
     }
 }

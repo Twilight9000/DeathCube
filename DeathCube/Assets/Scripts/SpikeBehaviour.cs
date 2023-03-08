@@ -17,6 +17,8 @@ public class SpikeBehaviour : MonoBehaviour
     public IEnumerator ActivateTrap()
     {
 
+        spikes.SetActive(true);
+
         while (spikes.transform.position.y < -11f)
         {
 

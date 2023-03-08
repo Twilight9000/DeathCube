@@ -19,7 +19,10 @@ public class minionBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        if(target != null)
+        {
+            rb.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+        }
     }
 
     /*
