@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 141820, guid: f971ea7c137f3f54c9a0963bca7602ec, type: 3}
+      propertyPath: m_TagString
+      value: canHurtRunner
+      objectReference: {fileID: 0}
     - target: {fileID: 459742, guid: f971ea7c137f3f54c9a0963bca7602ec, type: 3}
       propertyPath: m_RootOrder
       value: 0

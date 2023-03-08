@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7835605768663867785}
   - component: {fileID: 7835605768663867892}
   - component: {fileID: 7835605768663867784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hammer
   m_TagString: canHurtRunner
   m_Icon: {fileID: 0}
@@ -135,6 +135,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
       propertyPath: m_Name
       value: urethane_hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07d8ff49282bc1e448da2f088c57f512, type: 3}
