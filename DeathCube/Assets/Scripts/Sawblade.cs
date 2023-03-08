@@ -6,11 +6,12 @@ public class Sawblade : MonoBehaviour
 {
     //public Vector3 direction;
     public int amountOfTimeGoBackForth = 3;
-    public Vector3 endPos;
+    private Vector3 endPos;
     private Vector3 startPos;
     float val;
 
-    bool enableStuff;
+    public static Sawblade sw;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,13 @@ public class Sawblade : MonoBehaviour
         val = startPos.y * -1;
         startPos.y += val;
 
-        //StartCoroutine(BackAndForth());
+        endPos = startPos;
+        endPos.x += 10;
+    }
+
+    public static void startIenum()
+    {
+        sw.StartCoroutine(sw.BackAndForth());
     }
 
     IEnumerator BackAndForth()

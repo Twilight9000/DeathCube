@@ -19,16 +19,16 @@ public class PlacingTrapBehavior : MonoBehaviour
     public GameObject buttons;
     private int buttonsLeft;
 
-    public static List<GameObject> trapsPlaced = new List<GameObject>();
     private bool placingTrap;
+    int layer_mask;
+
+    public MenuController m;
 
     private void Start()
     {
+        layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
         buttonsLeft = buttons.transform.childCount;
-        if(trapsPlaced.Count > 0)
-        {
-            spawnTraps();
-        }
+        TrapSpawner.trapsPlaced.Clear();
     }
     /// <summary>
     /// Lets the player move the trap around on the screen.
@@ -36,49 +36,60 @@ public class PlacingTrapBehavior : MonoBehaviour
     /// </summary>
     void Update()
     {
-        RaycastHit hit;
-        ray = cam.ScreenPointToRay(Input.mousePosition);
-
-        //TODO: Move the trap around either using raycast and mouse
-        if (Physics.Raycast(ray, out hit) && placingTrap)
+        if (SceneManager.GetActiveScene().name.Equals("TrapPlacerRoom"))
         {
-            trapBeingPlaced.transform.position = hit.transform.position;
-            if (Input.GetMouseButtonUp(1))
+            RaycastHit hit;
+            ray = cam.ScreenPointToRay(Input.mousePosition);
+
+
+            //if(Physics.Raycast(ray.origin, ray.direction, out RaycastHit h, Mathf.Infinity, layer))
+            //{
+            //Debug.DrawLine(ray.origin, h.point);
+            //}
+
+            //TODO: Move the trap around either using raycast and mouse
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask) && placingTrap)
             {
-                buttonsLeft--;
-                trapsPlaced[trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
-                placingTrap = false;
-                trapBeingPlaced = null;
-                buttons.gameObject.SetActive(true);
+                print(hit.collider.gameObject.layer);
+                trapBeingPlaced.transform.position = hit.transform.position;
+                if (Input.GetMouseButtonUp(1))
+                {
+                    buttonsLeft--;
+                    TrapSpawner.trapsPlaced[TrapSpawner.trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
+                    placingTrap = false;
+                    trapBeingPlaced = null;
+                    buttons.gameObject.SetActive(true);
+                }
             }
-        }
 
-        if(buttonsLeft ==0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+            if (buttonsLeft == 0)
+            {
+                SceneManager.LoadScene("Gameplay");
+            }
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            trapsPlaced.Clear();
         }
-
 
     }
 
     public void PlaceTrap(int trapLoc)
     {
-        trapsPlaced.Add(traps[trapLoc]);
+        TrapSpawner.trapsPlaced.Add(traps[trapLoc]);
+        //layer_mask = traps[trapLoc].layer.ToString();
+        switch(traps[trapLoc].layer)
+        {
+            case (6):
+                layer_mask = LayerMask.GetMask("Wall Trap");
+                break;
+            case (7):
+                layer_mask = LayerMask.GetMask("Floor Trap");
+                break;
+            case (8):
+                layer_mask = LayerMask.GetMask("Ceiling Trap");
+                break;
+        }
+        print(traps[trapLoc].layer.ToString());
         trapBeingPlaced = Instantiate(traps[trapLoc]);
         placingTrap = true;
-    }
-
-    public void spawnTraps()
-    {
-        foreach(GameObject g in trapsPlaced)
-        {
-            Instantiate(g, g.transform.position, g.transform.rotation);
-        }
     }
 
 }

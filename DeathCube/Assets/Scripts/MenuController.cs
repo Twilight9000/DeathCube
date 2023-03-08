@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
     /// </summary>
     public void LoadChooseTraps()
     {
-        SceneManager.LoadScene("ChooseTraps");
+        SceneManager.LoadScene("TrapPlacerRoom");
     }
 
     /// <summary>
