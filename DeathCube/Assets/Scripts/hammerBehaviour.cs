@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class hammerBehaviour : MonoBehaviour
+public class hammerBehaviour : TrapBehaviour
 {
     public bool canHammerSwingDown;
     public bool isHammerSwingingDown;
@@ -46,5 +46,10 @@ public class hammerBehaviour : MonoBehaviour
         yield return new WaitForSeconds(.001f);
         transform.eulerAngles = new Vector3(maximumHammerRotation, transform.rotation.y, transform.rotation.z);
         isHammerSwingingDown = false;
+    }
+
+    public override IEnumerator ActivateTrap()
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyswatterBehaviour : MonoBehaviour
+public class FlyswatterBehaviour : TrapBehaviour
 {
     public GameObject baseHinge;
     public GameObject wind;
@@ -65,5 +65,10 @@ public class FlyswatterBehaviour : MonoBehaviour
      public void WindGenerate()
     {
         Instantiate(wind, windSpawnPoint.transform.position, transform.rotation);
-    } 
+    }
+
+    public override IEnumerator ActivateTrap()
+    {
+        throw new System.NotImplementedException();
+    }
 }

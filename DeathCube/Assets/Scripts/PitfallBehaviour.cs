@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PitfallBehaviour : MonoBehaviour
+public class PitfallBehaviour : TrapBehaviour
 {
 
     public GameObject door1;
@@ -65,6 +65,7 @@ public class PitfallBehaviour : MonoBehaviour
         }
     }
 
+    /*
     public IEnumerator ActivateTrap()
     {
 
@@ -78,7 +79,7 @@ public class PitfallBehaviour : MonoBehaviour
 
         yield return null;
 
-    }
+    }*/
 
     public IEnumerator FlipDown()
     {
@@ -121,6 +122,20 @@ public class PitfallBehaviour : MonoBehaviour
 
         down = false;
         initial = true;
+
+    }
+
+    public override IEnumerator ActivateTrap()
+    {
+        StartCoroutine(ShakeOne());
+
+        yield return new WaitForSeconds(3);
+
+        down = true;
+
+        StartCoroutine(FlipDown());
+
+        yield return null;
 
     }
 }
