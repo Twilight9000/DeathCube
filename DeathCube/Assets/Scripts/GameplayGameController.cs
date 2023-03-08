@@ -138,6 +138,8 @@ public class GameplayGameController : MonoBehaviour
             mc.LoadChooseTraps();
         }
 
+        //SceneManager.LoadScene("MainMenu");
+
     }
 
 
