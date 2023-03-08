@@ -5,50 +5,62 @@ using UnityEngine;
 public class ActivateTrapBehaviour : MonoBehaviour
 {
 
-    public GameObject spike;
+    public bool notOnCd;
 
-    public void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            StartTrap(spike);
-
-        }
-    }
+    public float cd = 8;
 
     public void StartTrap(GameObject g)
     {
-
-        if (g.name.Contains("Pit"))
+        if (notOnCd == true)
         {
-            g.GetComponent<PitfallBehaviour>().StartCoroutine("ActivateTrap");
-        }
+            if (g.name.Contains("Pit"))
+            {
+                g.GetComponent<PitfallBehaviour>().StartCoroutine("ActivateTrap");
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
 
-        if (g.name.Contains("Spike"))
-        {
-            g.GetComponent<SpikeBehaviour>().StartCoroutine("ActivateTrap");
-        }
+            if (g.name.Contains("Spike"))
+            {
+                g.GetComponent<SpikeBehaviour>().StartCoroutine("ActivateTrap");
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
 
-        if (g.name.Contains("Axe"))
-        {
-            g.GetComponent<AxeBehaviour>().StartCoroutine("hell");
-        }
+            if (g.name.Contains("Axe"))
+            {
+                g.GetComponent<AxeBehaviour>().StartCoroutine("hell");
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
 
-        if (g.name.Contains("Fly"))
-        {
-            g.GetComponent<FlyswatterBehaviour>().activated = true;
-        }
+            if (g.name.Contains("Fly"))
+            {
+                g.GetComponent<FlyswatterBehaviour>().activated = true;
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
 
-        if (g.name.Contains("Hammer"))
-        {
-            g.GetComponent<hammerBehaviour>().StartCoroutine("spinHammer");
-        }
+            if (g.name.Contains("Hammer"))
+            {
+                g.GetComponent<hammerBehaviour>().StartCoroutine("spinHammer");
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
 
-        if (g.name.Contains("Saw"))
-        {
-            g.GetComponent<Sawblade>().StartCoroutine("BackAndForth");
+            if (g.name.Contains("Saw"))
+            {
+                g.GetComponent<Sawblade>().StartCoroutine("BackAndForth");
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }
         }
+    }
+
+    public void CDTimer()
+    {
+
+        notOnCd = true;
+
     }
 }

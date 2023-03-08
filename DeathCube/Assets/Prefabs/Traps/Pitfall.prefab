@@ -204,9 +204,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2841918713336008135}
   - component: {fileID: 2841918713336008132}
+  - component: {fileID: -509649554692272572}
   m_Layer: 7
   m_Name: Pitfall
-  m_TagString: Untagged
+  m_TagString: canHurtRunner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2841918713336008134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.506588, y: -0.081, z: -60.81951}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 1, z: 8.69565}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -246,6 +247,20 @@ MonoBehaviour:
   rot: 10
   down: 0
   initial: 1
+--- !u!114 &-509649554692272572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2841918713336008134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6f1853ed1054a2bb4f33a6d9848dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 4
 --- !u!1 &2841918713396559150
 GameObject:
   m_ObjectHideFlags: 0
