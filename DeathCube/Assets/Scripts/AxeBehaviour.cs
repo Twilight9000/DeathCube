@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeBehaviour : MonoBehaviour
+public class AxeBehaviour : TrapBehaviour
 {
     float xInterval = -1;
     bool goingLeft = true;
@@ -28,12 +28,11 @@ public class AxeBehaviour : MonoBehaviour
                 axis = Vector3.zero;
                 break;
         }
-        StartCoroutine(hell());
     }
 
-    IEnumerator hell()
+    public override IEnumerator ActivateTrap()
     {
-        while(true)
+        while (true)
         {
             if (gameObject.transform.rotation.eulerAngles.z < 180 && gameObject.transform.rotation.eulerAngles.z > 170 && goingLeft)
             {

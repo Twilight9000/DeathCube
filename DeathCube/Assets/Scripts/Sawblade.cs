@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sawblade : MonoBehaviour
+public class Sawblade : TrapBehaviour
 {
     //public Vector3 direction;
     public int amountOfTimeGoBackForth = 3;
@@ -25,10 +25,17 @@ public class Sawblade : MonoBehaviour
 
     public static void startIenum()
     {
-        sw.StartCoroutine(sw.BackAndForth());
+        sw.StartCoroutine(sw.ActivateTrap());
     }
 
-    IEnumerator BackAndForth()
+    void swapVal()
+    {
+        Vector3 stored = startPos;
+        startPos = endPos;
+        endPos = stored;
+    }
+
+    public override IEnumerator ActivateTrap()
     {
         Vector3 up = transform.position;
         up.y += val;
@@ -39,17 +46,17 @@ public class Sawblade : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, up, Time.deltaTime * 5);
             yield return new WaitForFixedUpdate();
         }
-        
-        
+
+
         float timesGoneBackForth = 0;
         while (timesGoneBackForth < amountOfTimeGoBackForth)
         {
-            if(transform.position == endPos)
+            if (transform.position == endPos)
             {
                 swapVal();
-                timesGoneBackForth+= .5f;
+                timesGoneBackForth += .5f;
             }
-            transform.position = Vector3.MoveTowards(transform.position, endPos , Time.deltaTime * 15);
+            transform.position = Vector3.MoveTowards(transform.position, endPos, Time.deltaTime * 15);
 
             yield return new WaitForFixedUpdate();
         }
@@ -61,12 +68,5 @@ public class Sawblade : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, up, Time.deltaTime * 5);
             yield return new WaitForFixedUpdate();
         }
-    }
-
-    void swapVal()
-    {
-        Vector3 stored = startPos;
-        startPos = endPos;
-        endPos = stored;
     }
 }
