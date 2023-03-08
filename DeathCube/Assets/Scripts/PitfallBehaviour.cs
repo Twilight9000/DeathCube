@@ -14,11 +14,6 @@ public class PitfallBehaviour : MonoBehaviour
 
     public bool initial;
 
-    public void Start()
-    {
-        StartCoroutine("ActivateTrap");
-    }
-
     public IEnumerator ShakeOne()
     {
         for (int i = 0; i < 20 && down != true; i++)

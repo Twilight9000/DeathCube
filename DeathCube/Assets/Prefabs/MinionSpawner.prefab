@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9010128293608853170}
   - component: {fileID: 9010128293608853171}
+  - component: {fileID: 2022190192636276810}
   m_Layer: 8
   m_Name: MinionSpawner
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9010128293608853169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 150, z: -30}
+  m_LocalPosition: {x: 0, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54,6 +55,20 @@ MonoBehaviour:
   timeBtwSpawnsCountDown: 0
   minion: {fileID: 4422439555263324227, guid: 882cc0055165a43ae8d1db420ee3afb6, type: 3}
   minionFirePt: {fileID: 9010128293925445954}
+--- !u!114 &2022190192636276810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9010128293608853169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6f1853ed1054a2bb4f33a6d9848dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 4
 --- !u!1 &9010128293925445953
 GameObject:
   m_ObjectHideFlags: 0

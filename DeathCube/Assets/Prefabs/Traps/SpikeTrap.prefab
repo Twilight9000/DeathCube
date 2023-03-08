@@ -5136,9 +5136,10 @@ GameObject:
   - component: {fileID: 4142030358332007219}
   - component: {fileID: 4142030358332007228}
   - component: {fileID: 4142030358332007216}
+  - component: {fileID: -9118410361730738232}
   m_Layer: 7
   m_Name: SpikeTrap
-  m_TagString: Untagged
+  m_TagString: canHurtRunner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5151,7 +5152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4142030358332007229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60, y: 0, z: 60}
+  m_LocalPosition: {x: -60, y: 0, z: -30}
   m_LocalScale: {x: 30, y: 0.1, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5236,6 +5237,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spikes: {fileID: 4142030358192631973}
   speed: 0.5
+--- !u!114 &-9118410361730738232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142030358332007229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c6f1853ed1054a2bb4f33a6d9848dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 4
 --- !u!1 &4142030358369926309
 GameObject:
   m_ObjectHideFlags: 0
