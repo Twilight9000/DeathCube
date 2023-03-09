@@ -19,8 +19,7 @@ public class Sawblade : TrapBehaviour
         val = startPos.y * -1;
         startPos.y += val;
 
-        endPos = startPos;
-        endPos.x += 10;
+        endPos = startPos + transform.right * 10;
     }
 
     public static void startIenum()
@@ -37,6 +36,8 @@ public class Sawblade : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
+        notOnCd = false;
+
         Vector3 up = transform.position;
         up.y += val;
 
@@ -68,5 +69,9 @@ public class Sawblade : TrapBehaviour
             transform.position = Vector3.MoveTowards(transform.position, up, Time.deltaTime * 5);
             yield return new WaitForFixedUpdate();
         }
+
+        Invoke("CDTimer", cd);
+        yield return null;
+
     }
 }

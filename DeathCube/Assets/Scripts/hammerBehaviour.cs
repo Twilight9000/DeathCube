@@ -50,6 +50,8 @@ public class hammerBehaviour : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
-        throw new System.NotImplementedException();
+        notOnCd = false;
+        Invoke("CDTimer", cd);
+        yield return null;
     }
 }

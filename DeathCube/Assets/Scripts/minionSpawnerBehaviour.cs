@@ -12,7 +12,9 @@ public class minionSpawnerBehaviour : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
-        throw new System.NotImplementedException();
+        notOnCd = false;
+        Invoke("CDTimer", cd);
+        yield return null;
     }
 
     // Start is called before the first frame update

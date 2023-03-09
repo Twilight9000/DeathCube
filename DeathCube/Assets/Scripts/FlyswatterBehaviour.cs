@@ -69,6 +69,9 @@ public class FlyswatterBehaviour : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        notOnCd = false;
+        Invoke("CDTimer", cd);
+        yield return null;
     }
 }

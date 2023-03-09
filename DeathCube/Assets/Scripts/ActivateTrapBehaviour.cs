@@ -13,6 +13,14 @@ public class ActivateTrapBehaviour : MonoBehaviour
     {
         if (notOnCd == true)
         {
+            /*
+            if(g.TryGetComponent<TrapBehaviour>(out TrapBehaviour t))
+            {
+                t.StartCoroutine(t.ActivateTrap());
+                notOnCd = false;
+                Invoke("CDTimer", cd);
+            }    
+            
             if (g.name.Contains("Pit"))
             {
                 g.GetComponent<PitfallBehaviour>().StartCoroutine("ActivateTrap");
@@ -53,7 +61,7 @@ public class ActivateTrapBehaviour : MonoBehaviour
                 g.GetComponent<Sawblade>().StartCoroutine("BackAndForth");
                 notOnCd = false;
                 Invoke("CDTimer", cd);
-            }
+            }*/
         }
     }
 

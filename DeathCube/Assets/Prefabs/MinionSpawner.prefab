@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4ee13f9507e4e6d9ed6edc04200840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notOnCd: 0
+  cd: 8
   timeBtwSpawns: 3
   timeBtwSpawnsCountDown: 0
   minion: {fileID: 4422439555263324227, guid: 882cc0055165a43ae8d1db420ee3afb6, type: 3}

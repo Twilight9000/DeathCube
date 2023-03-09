@@ -55,12 +55,16 @@ public class SpikeBehaviour : TrapBehaviour
 
         }
 
+
+        Invoke("CDTimer", cd);
         spikes.SetActive(false);
+        yield return null;
 
     }
 
     public override IEnumerator ActivateTrap()
     {
+        notOnCd = false;
         spikes.SetActive(true);
 
         while (spikes.transform.position.y < -11f)

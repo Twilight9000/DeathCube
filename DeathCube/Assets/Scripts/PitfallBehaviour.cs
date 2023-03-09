@@ -127,6 +127,8 @@ public class PitfallBehaviour : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
+        notOnCd = false;
+
         StartCoroutine(ShakeOne());
 
         yield return new WaitForSeconds(3);
@@ -135,6 +137,10 @@ public class PitfallBehaviour : TrapBehaviour
 
         StartCoroutine(FlipDown());
 
+        yield return null;
+
+        
+        Invoke("CDTimer", cd);
         yield return null;
 
     }

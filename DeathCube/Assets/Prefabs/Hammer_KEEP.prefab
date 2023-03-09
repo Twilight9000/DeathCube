@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fc07479f8794878a7bc91cf7942ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 4
   canHammerSwingDown: 0
   isHammerSwingingDown: 0
   minimumHammerRotation: -140

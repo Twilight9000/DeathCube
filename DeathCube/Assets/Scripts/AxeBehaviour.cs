@@ -32,6 +32,8 @@ public class AxeBehaviour : TrapBehaviour
 
     public override IEnumerator ActivateTrap()
     {
+        notOnCd = false;
+
         while (true)
         {
             if (gameObject.transform.rotation.eulerAngles.z < 180 && gameObject.transform.rotation.eulerAngles.z > 170 && goingLeft)
@@ -47,5 +49,8 @@ public class AxeBehaviour : TrapBehaviour
             gameObject.transform.RotateAroundLocal(axis, xInterval);
             yield return new WaitForFixedUpdate();
         }
+
+        Invoke("CDTimer", cd);
+        yield return null;
     }
 }

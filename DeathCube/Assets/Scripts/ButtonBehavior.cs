@@ -14,7 +14,7 @@ public class ButtonBehavior : MonoBehaviour
 
     private TrapperBehaviour trapper;
 
-    private ActivateTrapBehaviour LinkedTrap;
+    private TrapBehaviour LinkedTrap;
 
     /// <summary>
     /// Keeps errors from being thrown by script trying to call stuff that isn't prepared.

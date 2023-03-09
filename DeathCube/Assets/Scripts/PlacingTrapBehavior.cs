@@ -60,6 +60,11 @@ public class PlacingTrapBehavior : MonoBehaviour
                     trapBeingPlaced = null;
                     buttons.gameObject.SetActive(true);
                 }
+
+                if(Input.GetKeyUp(KeyCode.R))
+                {
+                    trapBeingPlaced.GetComponent<TrapBehaviour>().rotate();
+                }
             }
 
             if (buttonsLeft == 0)

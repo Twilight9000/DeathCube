@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapperBehaviour : MonoBehaviour
 {
-    public List<ActivateTrapBehaviour> allTraps = new List<ActivateTrapBehaviour>();
+    public List<TrapBehaviour> allTraps = new List<TrapBehaviour>();
 
     public void Start()
     {
@@ -19,31 +19,31 @@ public class TrapperBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
 
-            allTraps[0].gameObject.GetComponent<ActivateTrapBehaviour>().StartTrap(allTraps[0].gameObject);
+            allTraps[0].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
 
-            allTraps[1].gameObject.GetComponent<ActivateTrapBehaviour>().StartTrap(allTraps[1].gameObject);
+            allTraps[1].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
 
-            allTraps[2].gameObject.GetComponent<ActivateTrapBehaviour>().StartTrap(allTraps[2].gameObject);
+            allTraps[2].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
 
-            allTraps[3].gameObject.GetComponent<ActivateTrapBehaviour>().StartTrap(allTraps[3].gameObject);
+            allTraps[3].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
 
-            allTraps[4].gameObject.GetComponent<ActivateTrapBehaviour>().StartTrap(allTraps[4].gameObject);
+            allTraps[4].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
 
         }
     }
@@ -51,7 +51,7 @@ public class TrapperBehaviour : MonoBehaviour
     public void Delay()
     {
 
-        allTraps.AddRange(FindObjectsOfType<ActivateTrapBehaviour>());
+        allTraps.AddRange(FindObjectsOfType<TrapBehaviour>());
 
     }
 }
