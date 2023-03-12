@@ -7,6 +7,7 @@ public class FlyswatterBehaviour : TrapBehaviour
     public GameObject baseHinge;
     public GameObject wind;
     public GameObject windSpawnPoint;
+    public GameObject flyswatterActually;
     public float spinSpeed;
     public bool activated;
 
@@ -21,8 +22,8 @@ public class FlyswatterBehaviour : TrapBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transformInitial = transform.position;
-        rotationInitial = transform.rotation;
+        transformInitial = flyswatterActually.transform.position;
+        rotationInitial = flyswatterActually.transform.rotation;
         windSpawnTimeInitial = windSpawnTime;
         resetTimeInitial = resetTime;
     }
@@ -31,7 +32,7 @@ public class FlyswatterBehaviour : TrapBehaviour
     void Update()
     {
         
-        
+        /*
         if(activated == true)
         {
             transform.RotateAround(baseHinge.transform.position, Vector3.up, spinSpeed * Time.deltaTime);
@@ -56,21 +57,45 @@ public class FlyswatterBehaviour : TrapBehaviour
 
             }
             
-        }
+        }*/
 
     }
 
  
 
-     public void WindGenerate()
+    public void WindGenerate()
     {
         Instantiate(wind, windSpawnPoint.transform.position, transform.rotation);
     }
 
     public override IEnumerator ActivateTrap()
     {
-        //throw new System.NotImplementedException();
         notOnCd = false;
+        activated = true;
+        while (activated)
+        {
+            flyswatterActually.transform.RotateAround(baseHinge.transform.position, Vector3.up, spinSpeed * Time.deltaTime);
+
+            windSpawnTime -= Time.deltaTime;
+
+            if (windSpawnTime <= 0)
+            {
+                Instantiate(wind, windSpawnPoint.transform.position, flyswatterActually.transform.rotation);
+                windSpawnTime = windSpawnTimeInitial;
+            }
+
+            resetTime -= Time.deltaTime;
+            if (resetTime <= 0)
+            {
+                activated = false;
+                flyswatterActually.transform.position = transformInitial;
+                flyswatterActually.transform.rotation = rotationInitial;
+                windSpawnTime = windSpawnTimeInitial;
+                resetTime = resetTimeInitial;
+
+            }
+            yield return new WaitForFixedUpdate();
+        }
         Invoke("CDTimer", cd);
         yield return null;
     }

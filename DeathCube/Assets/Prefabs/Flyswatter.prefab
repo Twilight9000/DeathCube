@@ -123,6 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6527183015383153662}
+  - component: {fileID: 3155284440887674833}
   m_Layer: 6
   m_Name: Flyswatter
   m_TagString: canHurtRunner
@@ -138,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6527183015383153663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30, y: 15, z: 75}
+  m_LocalPosition: {x: 0, y: 45, z: 75}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148,6 +149,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3155284440887674833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6527183015383153663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a441606f4ccd65479e4e39c2d1363fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 4
+  interactable: 0
+  baseHinge: {fileID: 6527183016044599128}
+  wind: {fileID: 1384394726537789401, guid: 39a76c19cbb6c05409a1ac8ef6b8f8f1, type: 3}
+  windSpawnPoint: {fileID: 6527183016436756694}
+  flyswatterActually: {fileID: 6527183016149463296}
+  spinSpeed: 40
+  activated: 0
+  resetTime: 5
+  windSpawnTime: 0.5
 --- !u!1 &6527183016044599128
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,11 +295,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6527183016149463359}
-  - component: {fileID: 6527183016149463356}
-  - component: {fileID: 2729285062110213691}
   m_Layer: 6
   m_Name: Flyswatter Actualy
-  m_TagString: canHurtRunner
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,39 +319,6 @@ Transform:
   m_Father: {fileID: 6527183015383153662}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6527183016149463356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527183016149463296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a441606f4ccd65479e4e39c2d1363fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseHinge: {fileID: 6527183016044599128}
-  wind: {fileID: 1384394726537789401, guid: 39a76c19cbb6c05409a1ac8ef6b8f8f1, type: 3}
-  windSpawnPoint: {fileID: 6527183016436756694}
-  spinSpeed: 40
-  activated: 0
-  resetTime: 5
-  windSpawnTime: 0.5
---- !u!114 &2729285062110213691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6527183016149463296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c6f1853ed1054a2bb4f33a6d9848dee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  notOnCd: 1
-  cd: 4
 --- !u!1 &6527183016436756694
 GameObject:
   m_ObjectHideFlags: 0
