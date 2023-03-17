@@ -1,4 +1,4 @@
-//Coder: Jess
+
 
 using System.Collections;
 using System.Collections.Generic;
@@ -24,14 +24,32 @@ public class PlacingTrapBehavior : MonoBehaviour
 
     public MenuController m;
 
+
     private void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+
         layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
-        buttonsLeft = 5;
-        TrapSpawner.trapsPlaced.Clear();
+      
+        if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
+        {
+            buttonsLeft = PlayerPrefs.GetInt("Player2Points");
+        }
+        else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
+        {
+            buttonsLeft = PlayerPrefs.GetInt("Player1Points");
+        }
+        else
+        {
+            Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
+            buttonsLeft = 1000; //This is so that the game does not function properly so nobody can ignore the error. >:(
+        }
+
     }
     /// <summary>
-    /// Lets the player move the trap around on the screen.
+    /// Lets the player move the trap around on the screen.s
     /// Detects if Enter or Click is pressed in order to place a trap.
     /// </summary>
     void Update()
@@ -47,7 +65,6 @@ public class PlacingTrapBehavior : MonoBehaviour
             //Debug.DrawLine(ray.origin, h.point);
             //}
 
-            //TODO: Move the trap around either using raycast and mouse
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask) && placingTrap)
             {
                 print(hit.collider.gameObject.layer);
@@ -55,6 +72,8 @@ public class PlacingTrapBehavior : MonoBehaviour
                 if (Input.GetMouseButtonUp(1))
                 {
                     buttonsLeft--;
+
+
                     TrapSpawner.trapsPlaced[TrapSpawner.trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
                     placingTrap = false;
                     trapBeingPlaced = null;
@@ -69,6 +88,18 @@ public class PlacingTrapBehavior : MonoBehaviour
 
             if (buttonsLeft == 0)
             {
+                if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
+                {
+                    PlayerPrefs.SetInt("Player2Points", 0);
+                }
+                else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
+                {
+                   PlayerPrefs.SetInt("Player1Points", 0);
+                }
+                else
+                {
+                    Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
+                }
                 SceneManager.LoadScene("Gameplay");
             }
 
@@ -99,5 +130,27 @@ public class PlacingTrapBehavior : MonoBehaviour
         trapBeingPlaced = Instantiate(traps[trapLoc]);
         placingTrap = true;
     }
+
+    /// <summary>
+    /// I'm making this now just in case we want to use it. Would be activated by pressing a button on the screen.
+    /// </summary>
+    public void ProceedToGameplay()
+    {
+        if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
+        {
+            PlayerPrefs.SetInt("Player2Points", buttonsLeft);
+        }
+        else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
+        {
+            PlayerPrefs.SetInt("Player1Points", buttonsLeft);
+        }
+        else
+        {
+            Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
+        }
+        SceneManager.LoadScene("Gameplay");
+    }
+
+
 
 }

@@ -29,6 +29,8 @@ public class StartOfGameController : MonoBehaviour
         //If 1, Player 2 is alive. 0 if has died.
         PlayerPrefs.SetInt("Player2Alive ", 1);
 
+        TrapSpawner.trapsPlaced.Clear();
+
     }
 
 }
