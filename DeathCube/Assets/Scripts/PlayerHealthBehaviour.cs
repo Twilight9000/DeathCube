@@ -20,6 +20,8 @@ public class PlayerHealthBehaviour : MonoBehaviour
         gc = GameObject.Find("GameplayController").GetComponent<GameplayGameController>();
         phtb = GameObject.Find("HealthTrack").GetComponent<PlayerHealthTextBehaviour>();
         healthAmount = health;
+        gc.ph = this;
+
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
 
         if (healthAmount <= 0)
         {
-            gc.EndOfScene();
+            gc.SceneEnd(true);
         }
     }
 

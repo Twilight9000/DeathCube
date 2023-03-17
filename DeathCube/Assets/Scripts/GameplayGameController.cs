@@ -17,34 +17,25 @@ public class GameplayGameController : MonoBehaviour
     private MenuController mc;
 
     /// <summary>
-    /// At the start of scene, this is set to 1 if Player 1 is the Runner, and player 2 if Player 2 is the Runner.
+    /// The object that displays how much time the player has left.
     /// </summary>
-    private int runnerNumber;
+    private TMP_Text timeDisplay;
+
+    [Tooltip("The amount of time the Runner must survive for.")]
+    public float startTime = 30;
 
     /// <summary>
-    /// The timer that records how long the Runner has survived for.
+    /// The amount of time the Runner has left.
     /// </summary>
-    private float timer = 0;
+    private float time;
 
     /// <summary>
-    /// The amount of minutes that the Runner has survived for.
+    /// If 1, player 1 is runner. Else, player 2 is runner.
     /// </summary>
-    private int timerMinutes = 0;
+    private int currentRunner;
 
-    /// <summary>
-    /// The amount of seconds the Runner has survived for.
-    /// </summary>
-    private int timerSeconds = 0;
-
-    /// <summary>
-    /// timerSeconds but displayed as a string so it looks correct on the clock.
-    /// </summary>
-    private string displaySeconds = "";
-
-    /// <summary>
-    /// The timer text object in the scene.
-    /// </summary>
-    private TMP_Text timerText;
+    [Tooltip("The PlayerHealthBehavior. The PlayerHealthBehavior itself sets istelf to this.")]
+    public PlayerHealthBehaviour ph;
 
 
     /// <summary>
@@ -54,82 +45,121 @@ public class GameplayGameController : MonoBehaviour
     void Start()
     {
         mc = GameObject.Find("MenuController").GetComponent<MenuController>();
-        timerText = GameObject.Find("Timer").GetComponent<TMP_Text>();
-
-        runnerNumber = PlayerPrefs.GetInt("WhoIsRunner");
-
-
-        timer = 0;
-
-
-        Cursor.visible = false;
+        time = startTime;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        currentRunner = PlayerPrefs.GetInt("RunnerPlayer");
 
     }
 
-
-    /// <summary>
-    /// Updates the timer.
-    /// </summary>
     void Update()
     {
-        timer += Time.deltaTime;
-
-        CalcuateTimerDisplayValue();
-
-        timerText.text = "" + timerMinutes + ":" + displaySeconds;
+        CountdownTime();
 
     }
 
 
     /// <summary>
-    /// Calculates the way the timer should display in the scene.
+    /// Manages how long the scene will run for.
     /// </summary>
-    private void CalcuateTimerDisplayValue()
+    private void CountdownTime()
     {
-        timerMinutes = (int)(timer / 60);
+        time -= Time.deltaTime;
 
-        timerSeconds = (int)(timer % 60);
+        //Handles display of timer
+        int minutes = (int)(time / 60);
+        int seconds = (int)(time % 60);
 
-        if (timerSeconds < 10)
+        timeDisplay.text = "" + minutes + ":" + seconds;
+
+        if (seconds < 10)
         {
-            displaySeconds = "0";
-        }
-        else
-        {
-            displaySeconds = "";
+            timeDisplay.text += "0";
         }
 
-        displaySeconds += timerSeconds;
+        //Calls ending if time runs out
+        if (time <= 0)
+        {
+            SceneEnd(false);
+        }
 
     }
 
 
     /// <summary>
-    /// Called when the scene ends. Saves PlayerPref values of what player is active and the time score of each player.
-    /// Loads the appropriate scene according to the runnerNumber value, which is connected to the WhoIsRunner PlayerPref.
+    /// Called when the countdown has ended, or when the player's health has hit 0.
+    /// I know this is organized repetitively but it is for readability's sake.
     /// </summary>
-    public void EndOfScene()
+    public void SceneEnd(bool noHealth)
     {
-        if (runnerNumber == 1)
+        //First, establish whether or not the game is over. If this scene has been entered with a dead player, then the next scene is game over.
+        bool willLoadEnding = false;
+        if (PlayerPrefs.GetInt("Player1Alive") == 0 || PlayerPrefs.GetInt("Player2Alive") == 0)
         {
-            PlayerPrefs.SetFloat("Player1Time", timer);
+            willLoadEnding = true;
         }
-        else if (runnerNumber == 2)
+
+        //Next, establish whether a player died or not this round. This happens even if the ending scene plays nect, because a tie is possible.
+        if (noHealth)
         {
-            PlayerPrefs.SetFloat("Player2Time", timer);
+            if (currentRunner == 1)
+            {
+                PlayerPrefs.SetInt("Player1Alive", 0);
+            }
+            else if (currentRunner == 2)
+            {
+                PlayerPrefs.SetInt("Player2Alive", 0);
+            }
+            else
+            {
+                Debug.LogError("Programmer-created error - Either Playerprefs is not managing the RunnerPlayer correctly, or something has messed with the variable currentRunner. It should never be set to this value.");
+            }
+        }
+
+        //Next, if the ending is not being called and the Runner has health left, set up how many points the current Runner player gets depending on their health.
+        if (!willLoadEnding && !noHealth)
+        {
+            int pointsToGive = 1;
+
+            //Determines the amount of points the Runner gets based on their health. 1 extra point per 1/3 of health kept.
+            float divisionAmount = (ph.health / 3);
+            pointsToGive = (int)(ph.healthAmount / divisionAmount);
+            
+            if (currentRunner == 1)
+            {
+                int currentPoints = PlayerPrefs.GetInt("Player1Points") + pointsToGive;
+                PlayerPrefs.SetInt("Player1Points", currentPoints);
+
+            }
+            else if (currentRunner == 2)
+            {
+                int currentPoints = PlayerPrefs.GetInt("Player2Points") + pointsToGive;
+                PlayerPrefs.SetInt("Player2Points", currentPoints);
+            }
+            else
+            {
+                Debug.LogError("Programmer-created error - Either Playerprefs is not managing the RunnerPlayer correctly, or something has messed with the variable currentRunner. It should never be set to this value.");
+            }
+
+        }
+
+        //Then, if the game isn't over, change the current runner.
+        if (currentRunner == 1)
+        {
+            PlayerPrefs.SetInt("RunnerPlayer", 2);
+        }
+        else if (currentRunner == 2)
+        {
+            PlayerPrefs.SetInt("RunnerPlayer", 1);
         }
         else
         {
-            Debug.LogError("runnerNumber is out of bounds! :(");
+            Debug.LogError("Programmer-created error - Either Playerprefs is not managing the RunnerPlayer correctly, or something has messed with the variable currentRunner. It should never be set to this value.");
         }
 
-
-        PlayerPrefs.SetInt("WhoIsRunner", runnerNumber++);
-        PlayerPrefs.Save();
-
-
-        if (runnerNumber > 2)
+        //Finally, load the appropriate next scene.
+        if (willLoadEnding)
         {
             mc.LoadEnding();
         }
@@ -138,9 +168,6 @@ public class GameplayGameController : MonoBehaviour
             mc.LoadChooseTraps();
         }
 
-        //SceneManager.LoadScene("MainMenu");
-
     }
-
 
 }
