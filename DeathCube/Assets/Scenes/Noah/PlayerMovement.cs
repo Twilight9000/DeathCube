@@ -46,13 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveVector != Vector3.zero)
         {
-            rb.velocity = moveVector * moveSpeed;
+            rb.velocity = new Vector3(moveVector.x * moveSpeed, rb.velocity.y, moveVector.z * moveSpeed);
         }
         else
         {
-            rb.velocity = Vector3.zero;
+            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
         }
-
     }
 
     void OnJumpPerformed(InputAction.CallbackContext context)
