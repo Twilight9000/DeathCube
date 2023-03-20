@@ -61,8 +61,6 @@ public class FlyswatterBehaviour : TrapBehaviour
 
     }
 
- 
-
     public void WindGenerate()
     {
         Instantiate(wind, windSpawnPoint.transform.position, transform.rotation);
