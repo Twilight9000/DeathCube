@@ -7,6 +7,7 @@ public class AxeBehaviour : TrapBehaviour
     float xInterval = -1;
     bool goingLeft = true;
     private Vector3 axis;
+    private bool stopActive;
 
     void Start()
     {
@@ -33,8 +34,10 @@ public class AxeBehaviour : TrapBehaviour
     public override IEnumerator ActivateTrap()
     {
         notOnCd = false;
+        stopActive = false;
+        StartCoroutine(MoveUpDown());
 
-        while (true)
+        while (!stopActive)
         {
             if (gameObject.transform.rotation.eulerAngles.z < 180 && gameObject.transform.rotation.eulerAngles.z > 170 && goingLeft)
             {
@@ -52,5 +55,36 @@ public class AxeBehaviour : TrapBehaviour
 
         Invoke("CDTimer", cd);
         yield return null;
+    }
+
+    public IEnumerator MoveUpDown()
+    {
+        int current = 0;
+        while (current != 2)
+        {
+            if (current == 0 && gameObject.transform.position.y > 30)
+            {
+                Vector3 k = gameObject.transform.position;
+                k.y -= 1;
+                gameObject.transform.position = k;
+            }
+            else if (current == 0 && gameObject.transform.position.y <= 30)
+            {
+                current = 1;
+                yield return new WaitForSeconds(1);
+            }
+            else if (current == 1 && gameObject.transform.position.y < 150)
+            {
+                Vector3 k = gameObject.transform.position;
+                k.y += 1;
+                gameObject.transform.position = k;
+            }
+            else if(current == 1 && gameObject.transform.position.y >= 150)
+            {
+                current = 2;
+            }
+            yield return new WaitForFixedUpdate();
+        }
+        stopActive = true;
     }
 }
