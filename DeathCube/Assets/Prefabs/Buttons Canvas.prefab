@@ -469,6 +469,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonsV
       objectReference: {fileID: 0}
+    - target: {fileID: 7823865910557566813, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823865910557566813, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
 --- !u!224 &4332108619158339721 stripped
