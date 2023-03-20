@@ -1196,6 +1196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Trapper''s Canvas '
       objectReference: {fileID: 0}
+    - target: {fileID: 8259047801514484594, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259047801592684904, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 190
+      objectReference: {fileID: 0}
     - target: {fileID: 9195983881039695917, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
