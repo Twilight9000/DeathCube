@@ -16,10 +16,8 @@ public class GameplayGameController : MonoBehaviour
     /// </summary>
     private MenuController mc;
 
-    /// <summary>
-    /// The object that displays how much time the player has left.
-    /// </summary>
-    private TMP_Text timeDisplay;
+    [Tooltip("The object that displays how much time the player has left.")]
+    public TMP_Text timeDisplay;
 
     [Tooltip("The amount of time the Runner must survive for.")]
     public float startTime = 30;
