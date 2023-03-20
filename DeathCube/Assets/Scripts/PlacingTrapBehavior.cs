@@ -29,23 +29,10 @@ public class PlacingTrapBehavior : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
+        buttonsLeft = 5;
 
         layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
-      
-        if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
-        {
-            buttonsLeft = PlayerPrefs.GetInt("Player2Points");
-        }
-        else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
-        {
-            buttonsLeft = PlayerPrefs.GetInt("Player1Points");
-        }
-        else
-        {
-            Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
-            buttonsLeft = 1000; //This is so that the game does not function properly so nobody can ignore the error. >:(
-        }
+     
 
     }
     /// <summary>
@@ -78,6 +65,7 @@ public class PlacingTrapBehavior : MonoBehaviour
                     placingTrap = false;
                     trapBeingPlaced = null;
                     buttons.gameObject.SetActive(true);
+
                 }
 
                 if(Input.GetKeyUp(KeyCode.R))
@@ -88,18 +76,6 @@ public class PlacingTrapBehavior : MonoBehaviour
 
             if (buttonsLeft == 0)
             {
-                if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
-                {
-                    PlayerPrefs.SetInt("Player2Points", 0);
-                }
-                else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
-                {
-                   PlayerPrefs.SetInt("Player1Points", 0);
-                }
-                else
-                {
-                    Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
-                }
                 SceneManager.LoadScene("Gameplay");
             }
 
@@ -136,18 +112,6 @@ public class PlacingTrapBehavior : MonoBehaviour
     /// </summary>
     public void ProceedToGameplay()
     {
-        if (PlayerPrefs.GetInt("RunnerPlayer") == 1)
-        {
-            PlayerPrefs.SetInt("Player2Points", buttonsLeft);
-        }
-        else if (PlayerPrefs.GetInt("RunnerPlayer") == 2)
-        {
-            PlayerPrefs.SetInt("Player1Points", buttonsLeft);
-        }
-        else
-        {
-            Debug.LogError("RunnerPlayer is either being set or retrieved incorrectly. :(");
-        }
         SceneManager.LoadScene("Gameplay");
     }
 
