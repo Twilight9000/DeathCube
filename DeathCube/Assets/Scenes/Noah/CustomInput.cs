@@ -105,7 +105,7 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Arrow Keys"",
                     ""id"": ""4d4f5183-8adb-4c1d-8f32-667cad9fdb13"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""3DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -150,6 +150,28 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                     ""name"": ""Right"",
                     ""id"": ""ec1abbc0-cf8d-4d3d-927b-62ac33b71122"",
                     ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Forward"",
+                    ""id"": ""b6fc7ef0-bbeb-4475-a39f-5b7d52ec482d"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Backward"",
+                    ""id"": ""af358981-0671-4c58-a9b4-d5108889dbff"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
