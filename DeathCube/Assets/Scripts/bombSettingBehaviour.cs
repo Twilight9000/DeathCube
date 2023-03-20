@@ -7,6 +7,8 @@ public class bombSettingBehaviour : MonoBehaviour
     public Vector3 mousePos;
     public GameObject bomb;
 
+    private bombBehaviour BB;
+
     // Update is called once per frame
     void Update()
     {
@@ -15,7 +17,9 @@ public class bombSettingBehaviour : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos.z = 2.0f;
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-            Instantiate(bomb, objectPos, Quaternion.identity);
+            BB = Instantiate(bomb, objectPos, Quaternion.identity).GetComponent<bombBehaviour>();
+            BB.bombPos.x = objectPos.x;
+            BB.bombPos.y = objectPos.y;
         }
     }
 }
