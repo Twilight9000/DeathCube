@@ -54,8 +54,31 @@ public class PlacingTrapBehavior : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask) && placingTrap)
             {
-                print(hit.collider.gameObject.layer);
-                trapBeingPlaced.transform.position = hit.transform.position;
+                if (trapBeingPlaced.GetComponent<TrapBehaviour>().customRotation)
+                {
+                    if (trapBeingPlaced.transform.position.x != hit.transform.position.x)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f,90f,0f);
+                    }
+                    else if(hit.transform.position.x == -75)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                    }   
+                    else if(hit.transform.position.x == 75)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                    }
+                }
+                else if(Input.GetKeyUp(KeyCode.R))
+                {
+                    trapBeingPlaced.GetComponent<TrapBehaviour>().rotate();
+                }
+
+                if (hit.collider.gameObject.tag.Equals("Floor"))
+                {
+                    trapBeingPlaced.transform.position = hit.transform.position;
+                }
+
                 if (Input.GetMouseButtonUp(1))
                 {
                     buttonsLeft--;
@@ -68,10 +91,6 @@ public class PlacingTrapBehavior : MonoBehaviour
 
                 }
 
-                if(Input.GetKeyUp(KeyCode.R))
-                {
-                    trapBeingPlaced.GetComponent<TrapBehaviour>().rotate();
-                }
             }
 
             if (buttonsLeft == 0)
