@@ -6,6 +6,7 @@ TagManager:
   tags:
   - canHurtRunner
   - Wind
+  - Floor
   layers:
   - Default
   - TransparentFX

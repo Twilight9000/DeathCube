@@ -8,6 +8,7 @@ public abstract class TrapBehaviour : MonoBehaviour
     public bool notOnCd;
 
     public float cd = 8;
+    public bool customRotation = false;
     public abstract IEnumerator ActivateTrap();
 
     public void rotate()
