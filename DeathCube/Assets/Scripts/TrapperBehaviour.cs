@@ -15,36 +15,89 @@ public class TrapperBehaviour : MonoBehaviour
 
     public void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            foreach (TrapBehaviour trap in allTraps)
+            {
 
-            allTraps[0].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
+                if (trap.gameObject.name.Contains("Spike") && trap.notOnCd == true)
+                {
 
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            foreach (TrapBehaviour trap in allTraps)
+            {
 
-            allTraps[1].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
+                if (trap.gameObject.name.Contains("Axe") && trap.notOnCd == true)
+                {
 
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            foreach (TrapBehaviour trap in allTraps)
+            {
 
-            allTraps[2].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
+                if (trap.gameObject.name.Contains("Hammer") && trap.notOnCd == true)
+                {
 
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            foreach (TrapBehaviour trap in allTraps)
+            {
 
-            allTraps[3].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
+                if (trap.gameObject.name.Contains("Fly") && trap.notOnCd == true)
+                {
 
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
+            foreach (TrapBehaviour trap in allTraps)
+            {
 
-            allTraps[4].gameObject.GetComponent<TrapBehaviour>().StartCoroutine("ActivateTrap");
+                if (trap.gameObject.name.Contains("Pitfall") && trap.notOnCd == true)
+                {
 
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            foreach (TrapBehaviour trap in allTraps)
+            {
+
+                if (trap.gameObject.name.Contains("Saw") && trap.notOnCd == true)
+                {
+
+                    trap.StartCoroutine("ActivateTrap");
+
+                }
+
+            }
         }
     }
 
