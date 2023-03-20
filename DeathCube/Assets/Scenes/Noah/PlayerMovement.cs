@@ -8,8 +8,9 @@ public class PlayerMovement : MonoBehaviour
     private CustomInput input = null;
     private Rigidbody rb = null;
     private Vector3 moveVector = Vector3.zero;
-    private Vector3 jumpvector = Vector3.zero;
     public float moveSpeed = 10f;
+    public float jumpForce = 50f;
+    private bool jumped = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,31 +23,44 @@ public class PlayerMovement : MonoBehaviour
     {
         input.Enable();
         input.Player.Movement.performed += OnMovement;
-        input.Player.Movement.canceled += OnMovementCancelled;
+        input.Player.Jump.performed += OnJumpPerformed;
     }
     private void OnDisable()
     {
         input.Disable();
         input.Player.Movement.performed -= OnMovement;
-        input.Player.Movement.canceled -= OnMovementCancelled;
+        input.Player.Jump.canceled -= OnJumpPerformed;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVector * moveSpeed;
+        if (jumped)
+        {
+            jumped = false;
+        }
     }
 
     void OnMovement(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector3>();
-    }
-    void OnMovementCancelled(InputAction.CallbackContext context)
-    {
-        moveVector = Vector3.zero;
+
+        if (moveVector != Vector3.zero)
+        {
+            rb.velocity = moveVector * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
+
     }
 
-    void OnJump(InputAction.CallbackContext context)
+    void OnJumpPerformed(InputAction.CallbackContext context)
     {
-        
+        if (!jumped)
+        {
+            jumped = true;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }
