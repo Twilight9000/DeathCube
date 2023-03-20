@@ -23,46 +23,44 @@ public class PlayerMovement : MonoBehaviour
     {
         input.Enable();
         input.Player.Movement.performed += OnMovement;
-        input.Player.Movement.canceled += OnMovementCancelled;
         input.Player.Jump.performed += OnJumpPerformed;
-        input.Player.Jump.canceled += OnJumpCancelled;
     }
     private void OnDisable()
     {
         input.Disable();
         input.Player.Movement.performed -= OnMovement;
-        input.Player.Movement.canceled -= OnMovementCancelled;
-        input.Player.Jump.performed -= OnJumpCancelled;
         input.Player.Jump.canceled -= OnJumpPerformed;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVector * moveSpeed;
+        if (jumped)
+        {
+            jumped = false;
+        }
     }
 
     void OnMovement(InputAction.CallbackContext context)
     {
         moveVector = context.ReadValue<Vector3>();
-    }
-    void OnMovementCancelled(InputAction.CallbackContext context)
-    {
-        moveVector = Vector3.zero;
+
+        if (moveVector != Vector3.zero)
+        {
+            rb.velocity = moveVector * moveSpeed;
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
+
     }
 
     void OnJumpPerformed(InputAction.CallbackContext context)
     {
-        jumped = true;
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-    }
-
-    void OnJumpCancelled(InputAction.CallbackContext context)
-    {
-        if(jumped == false)
+        if (!jumped)
         {
-            var forceEffect = context.duration;
-            rb.AddForce(Vector3.up * (jumpForce * (float)forceEffect), ForceMode.Impulse);
+            jumped = true;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
 }
