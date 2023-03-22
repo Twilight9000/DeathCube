@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9010128293608853169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 150, z: 60}
+  m_LocalPosition: {x: 30, y: 150, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notOnCd: 0
   cd: 8
+  customRotation: 0
   timeBtwSpawns: 3
   timeBtwSpawnsCountDown: 0
   minion: {fileID: 4422439555263324227, guid: 882cc0055165a43ae8d1db420ee3afb6, type: 3}
