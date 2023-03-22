@@ -41,7 +41,7 @@ public class PlacingTrapBehavior : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (SceneManager.GetActiveScene().name.Equals("TrapPlacerRoom"))
+        if (SceneManager.GetActiveScene().name.Equals("TrapPlacerRoom") || SceneManager.GetActiveScene().name.Equals("TrapPlacerRoom 1"))
         {
             RaycastHit hit;
             ray = cam.ScreenPointToRay(Input.mousePosition);
