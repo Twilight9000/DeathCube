@@ -33,7 +33,14 @@ public class ButtonBehavior : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         trapper = GameObject.Find("Trapper").GetComponent<TrapperBehaviour>();
 
-        LinkedTrap = trapper.allTraps[buttonNumber];
+        if (buttonNumber < trapper.allTraps.Count)
+        {
+            LinkedTrap = trapper.allTraps[buttonNumber];
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
 
         checksReady = true;
         yield return null;

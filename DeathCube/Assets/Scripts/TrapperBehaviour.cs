@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapperBehaviour : MonoBehaviour
 {
     public List<TrapBehaviour> allTraps = new List<TrapBehaviour>();
+    public List<string> allNames = new List<string>();
 
     public void Start()
     {
@@ -15,87 +16,54 @@ public class TrapperBehaviour : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && allNames.Count >= 1)
         {
-            foreach (TrapBehaviour trap in allTraps)
-            {
 
-                if (trap.gameObject.name.Contains("Spike") && trap.notOnCd == true)
-                {
+            TrapActivation(0);
 
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && allNames.Count >= 2)
         {
-            foreach (TrapBehaviour trap in allTraps)
-            {
 
-                if (trap.gameObject.name.Contains("Axe") && trap.notOnCd == true)
-                {
+            TrapActivation(1);
 
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) && allNames.Count >= 3)
         {
-            foreach (TrapBehaviour trap in allTraps)
-            {
 
-                if (trap.gameObject.name.Contains("Hammer") && trap.notOnCd == true)
-                {
+            TrapActivation(2);
 
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && allNames.Count >= 4)
         {
-            foreach (TrapBehaviour trap in allTraps)
-            {
 
-                if (trap.gameObject.name.Contains("Fly") && trap.notOnCd == true)
-                {
+            TrapActivation(3);
 
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5) && allNames.Count >= 5)
         {
-            foreach (TrapBehaviour trap in allTraps)
-            {
 
-                if (trap.gameObject.name.Contains("Pitfall") && trap.notOnCd == true)
-                {
+            TrapActivation(4);
 
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
-
-            }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6) && allNames.Count >= 6)
         {
-            foreach (TrapBehaviour trap in allTraps)
+
+            TrapActivation(5);
+
+        }
+    }
+
+    public void TrapActivation(int i)
+    {
+
+        foreach (TrapBehaviour trap in allTraps)
+        {
+            //sees if trap is named the first trap in the list and if it is NOT on cooldown
+            if (trap.gameObject.name.Contains(allNames[i]) && trap.notOnCd == true)
             {
 
-                if (trap.gameObject.name.Contains("Saw") && trap.notOnCd == true)
-                {
-
-                    trap.StartCoroutine("ActivateTrap");
-
-                }
+                trap.StartCoroutine("ActivateTrap");
 
             }
         }
@@ -106,5 +74,29 @@ public class TrapperBehaviour : MonoBehaviour
 
         allTraps.AddRange(FindObjectsOfType<TrapBehaviour>());
 
+        string names;
+        //dummy all traps that can be manipulated freely
+        List<TrapBehaviour> dummyList = allTraps;
+        //new list of traps
+        List<TrapBehaviour> newList = new List<TrapBehaviour>();
+
+        for (int i = 0; i < dummyList.Count;)
+        {
+            //current trap being looked at
+            TrapBehaviour trap = dummyList[i];
+            
+            names = trap.gameObject.name;
+            //minion spawner is a passive trap so there is no need to get it
+            if (trap.gameObject.name.Contains("Minion") != true)
+            {
+                allNames.Add(names);
+                //finds all of the traps with the name of the current trap being looked at and adds them
+                newList.AddRange(allTraps.FindAll((g) => g.name.Contains(names)));
+            }
+            //gets rid of any repeating trap names from the dummyList
+            dummyList.RemoveAll((g) => g.name.Contains(names));
+        }
+        
+        allTraps = newList;
     }
 }
