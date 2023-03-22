@@ -74,6 +74,8 @@ public class TrapperBehaviour : MonoBehaviour
 
         allTraps.AddRange(FindObjectsOfType<TrapBehaviour>());
 
+        allTraps.Reverse();
+
         string names;
         //dummy all traps that can be manipulated freely
         List<TrapBehaviour> dummyList = allTraps;
