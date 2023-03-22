@@ -54,5 +54,10 @@ public class ButtonBehavior : MonoBehaviour
                 GetComponent<Button>().interactable = true;
             }
         }
+
+
+
+
+
     }
 }

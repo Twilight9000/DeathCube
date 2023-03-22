@@ -1,4 +1,5 @@
 using System.Collections;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         input.Disable();
-        input.Player.Movement.performed -= OnMovement;
+        input.Player.Movement.canceled -= OnMovement;
         input.Player.Jump.canceled -= OnJumpPerformed;
     }
 
