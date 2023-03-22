@@ -41,7 +41,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
 
     public void UnInvincible()
     {
-        gameObject.GetComponent<Renderer>().material.color = Color.white;
+        gameObject.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.color = Color.white;
         isInvincible = false;
     }
 
@@ -53,7 +53,7 @@ public class PlayerHealthBehaviour : MonoBehaviour
             {
                 healthAmount--;
                 isInvincible = true;
-                gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+                gameObject.transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().material.color = Color.yellow;
                 invincinbleAmount = invincibleDuration;
 
                 phtb.TookDamage();
