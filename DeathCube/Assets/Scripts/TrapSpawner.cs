@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapSpawner : MonoBehaviour
 {
     public static List<GameObject> trapsPlaced = new List<GameObject>();
+    public static List<Vector3> trapPos = new List<Vector3>();
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,16 @@ public class TrapSpawner : MonoBehaviour
 
     public void spawnTraps()
     {
-        foreach (GameObject g in trapsPlaced)
+        //foreach (GameObject g in trapsPlaced)
+        //{
+        //    Instantiate(g, g.transform.position, g.transform.rotation);
+        //}
+        for (int i = 0; i < trapsPlaced.Count; i++)
         {
-            Instantiate(g, g.transform.position, g.transform.rotation);
+
+            GameObject t = trapsPlaced[i].gameObject;
+            Instantiate(t, trapPos[i], t.transform.rotation);
+
         }
     }
 }

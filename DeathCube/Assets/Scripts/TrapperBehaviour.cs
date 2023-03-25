@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapperBehaviour : MonoBehaviour
 {
     public List<TrapBehaviour> allTraps = new List<TrapBehaviour>();
+    public List<TrapBehaviour> buttonTraps = new List<TrapBehaviour>();
     public List<string> allNames = new List<string>();
 
     public void Start()
@@ -94,6 +95,7 @@ public class TrapperBehaviour : MonoBehaviour
                 allNames.Add(names);
                 //finds all of the traps with the name of the current trap being looked at and adds them
                 newList.AddRange(allTraps.FindAll((g) => g.name.Contains(names)));
+                buttonTraps.Add(allTraps.Find((g) => g.name.Contains(names)));
             }
             //gets rid of any repeating trap names from the dummyList
             dummyList.RemoveAll((g) => g.name.Contains(names));
