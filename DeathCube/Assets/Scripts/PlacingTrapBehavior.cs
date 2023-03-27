@@ -13,6 +13,7 @@ public class PlacingTrapBehavior : MonoBehaviour
     [Tooltip("Assign in editor.\nThe trap that will be placed by this instance of TrapPlacing.")]
     public List<GameObject> traps = new List<GameObject>();
     public GameObject trapBeingPlaced;
+    private Vector3 startRot;
     public Camera cam;
     private Ray ray;
 
@@ -32,9 +33,6 @@ public class PlacingTrapBehavior : MonoBehaviour
         buttonsLeft = 5;
 
         layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
-
-        TrapSpawner.trapsPlaced.Clear();
-        TrapSpawner.trapPos.Clear();
 
     }
     /// <summary>
@@ -58,20 +56,37 @@ public class PlacingTrapBehavior : MonoBehaviour
             {
                 if (trapBeingPlaced.GetComponent<TrapBehaviour>().customRotation)
                 {
+                    print(startRot.z);
+                    /*
                     if (trapBeingPlaced.transform.position.x != hit.transform.position.x)
                     {
-                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f,90f,0f);
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x ,0f - startRot.y, 0f - startRot.z);
                     }
                     else if(hit.transform.position.x == -75)
                     {
-                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x, -90f - startRot.y, 0f - startRot.z);
                     }   
                     else if(hit.transform.position.x == 75)
                     {
-                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x, 90f - startRot.y, 0f - startRot.z);
+                    }*/
+
+
+                    if (trapBeingPlaced.transform.position.x != hit.transform.position.x)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x, 90f - startRot.y, 0f - startRot.z);
                     }
+                    else if (hit.transform.position.x == -75)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x, 0f - startRot.y, 0f - startRot.z);
+                    }
+                    else if (hit.transform.position.x == 75)
+                    {
+                        trapBeingPlaced.transform.rotation = Quaternion.Euler(0f - startRot.x, 180f - startRot.y, 0f - startRot.z);
+                    }
+
                 }
-                else if(Input.GetKeyUp(KeyCode.R))
+                else if (Input.GetKeyUp(KeyCode.R))
                 {
                     trapBeingPlaced.GetComponent<TrapBehaviour>().rotate();
                 }
@@ -85,9 +100,9 @@ public class PlacingTrapBehavior : MonoBehaviour
                 {
                     buttonsLeft--;
 
-
-                    //TrapSpawner.trapsPlaced[TrapSpawner.trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
                     TrapSpawner.trapPos.Add(trapBeingPlaced.transform.position);
+                    TrapSpawner.trapRot.Add(trapBeingPlaced.transform.rotation);
+
                     placingTrap = false;
                     trapBeingPlaced = null;
                     buttons.gameObject.SetActive(true);
@@ -109,7 +124,7 @@ public class PlacingTrapBehavior : MonoBehaviour
     {
         TrapSpawner.trapsPlaced.Add(traps[trapLoc]);
         //layer_mask = traps[trapLoc].layer.ToString();
-        switch(traps[trapLoc].layer)
+        switch (traps[trapLoc].layer)
         {
             case (6):
                 layer_mask = LayerMask.GetMask("Wall Trap");
@@ -126,6 +141,7 @@ public class PlacingTrapBehavior : MonoBehaviour
         }
         print(traps[trapLoc].layer.ToString());
         trapBeingPlaced = Instantiate(traps[trapLoc]);
+        startRot = traps[trapLoc].transform.rotation.eulerAngles;
         placingTrap = true;
     }
 
