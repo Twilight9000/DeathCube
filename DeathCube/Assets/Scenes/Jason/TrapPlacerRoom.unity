@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -765,6 +765,7 @@ MonoBehaviour:
   - {fileID: 7485381591746233002, guid: 26d8f9cd32ccc4d4faa576b04ba81d7c, type: 3}
   - {fileID: 2841918713336008134, guid: a417be08317ce4b898571420707cd111, type: 3}
   - {fileID: 6527183015383153663, guid: de51503da7bb32743824f209ea11037a, type: 3}
+  - {fileID: 6961690114647604797, guid: 08fcc4d899af7704e8654bf9cef7febd, type: 3}
   trapBeingPlaced: {fileID: 2841918713336008134, guid: a417be08317ce4b898571420707cd111, type: 3}
   cam: {fileID: 963194227}
   buttons: {fileID: 1614640536}
@@ -1722,6 +1723,7 @@ MonoBehaviour:
   - {fileID: 3167051235866153743, guid: 40936486193814084908f8ecf815e862, type: 3}
   - {fileID: 7118173215753917068, guid: e0b5a3b1e219b4321850a03bab29e8d1, type: 3}
   - {fileID: 8477985430849540718, guid: 7ca15011947ee4dab88bd061bc2a5ded, type: 3}
+  - {fileID: 1155420764992709222, guid: 3d572255288da9e4fad05f8a9d7c5edf, type: 3}
   - {fileID: 1155420764992709222, guid: b68f0cb817e214b75a4e286cbb9d2946, type: 3}
   placements:
   - {x: -300, y: 125, z: 0}

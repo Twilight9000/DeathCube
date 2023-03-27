@@ -14,6 +14,9 @@ public class StartOfGameController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         //if 1, Player 1 is Runner. if 2, player 2 is Runner.
         PlayerPrefs.SetInt("RunnerPlayer", 2);
 
