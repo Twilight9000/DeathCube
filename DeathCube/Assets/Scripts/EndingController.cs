@@ -16,6 +16,9 @@ public class EndingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         if (PlayerPrefs.GetInt("Player1Alive") == 0)
         {
             if (PlayerPrefs.GetInt("Player2Alive") == 0)
