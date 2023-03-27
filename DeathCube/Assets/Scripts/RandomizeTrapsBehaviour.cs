@@ -15,9 +15,10 @@ public class RandomizeTrapsBehaviour : MonoBehaviour
     {
 
         for (int i = 0; i < 6; i++)
-        {
+        {         
 
             GameObject g = Instantiate(allTrapsButtons[Random.Range(0, allTrapsButtons.Count)], transform);
+
 
             g.transform.localPosition = placements[i];
 
@@ -60,7 +61,11 @@ public class RandomizeTrapsBehaviour : MonoBehaviour
                 num = 6;
                 g.GetComponent<Button>().onClick.AddListener(() => thing(num));
             }
-
+            else if (g.name.Contains("Gun"))
+            {
+                num = 7;
+                g.GetComponent<Button>().onClick.AddListener(() => thing(num));
+            }
         }
 
     }

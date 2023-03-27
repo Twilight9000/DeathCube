@@ -53,6 +53,12 @@ public class TrapperBehaviour : MonoBehaviour
             TrapActivation(5);
 
         }
+        if (Input.GetKeyDown(KeyCode.Alpha6) && allNames.Count >= 7)
+        {
+
+            TrapActivation(6);
+
+        }
     }
 
     public void TrapActivation(int i)
