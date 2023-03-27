@@ -2,6 +2,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,9 +34,10 @@ public class ButtonBehavior : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         trapper = GameObject.Find("Trapper").GetComponent<TrapperBehaviour>();
 
-        if (buttonNumber < trapper.allTraps.Count)
+        if (buttonNumber < trapper.buttonTraps.Count)
         {
-            LinkedTrap = trapper.allTraps[buttonNumber];
+            LinkedTrap = trapper.buttonTraps[buttonNumber];
+            transform.GetComponentInChildren<TMP_Text>().text = trapper.buttonTraps[buttonNumber].name.Substring(0, trapper.buttonTraps[buttonNumber].name.Length - 7) + " - " + (buttonNumber + 1).ToString();
         }
         else
         {

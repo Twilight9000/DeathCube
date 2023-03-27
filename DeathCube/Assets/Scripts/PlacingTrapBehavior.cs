@@ -32,7 +32,9 @@ public class PlacingTrapBehavior : MonoBehaviour
         buttonsLeft = 5;
 
         layer_mask = LayerMask.GetMask("Floor Trap", "Wall Trap");
-     
+
+        TrapSpawner.trapsPlaced.Clear();
+        TrapSpawner.trapPos.Clear();
 
     }
     /// <summary>
@@ -84,7 +86,8 @@ public class PlacingTrapBehavior : MonoBehaviour
                     buttonsLeft--;
 
 
-                    TrapSpawner.trapsPlaced[TrapSpawner.trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
+                    //TrapSpawner.trapsPlaced[TrapSpawner.trapsPlaced.Count - 1].transform.position = trapBeingPlaced.transform.position;
+                    TrapSpawner.trapPos.Add(trapBeingPlaced.transform.position);
                     placingTrap = false;
                     trapBeingPlaced = null;
                     buttons.gameObject.SetActive(true);

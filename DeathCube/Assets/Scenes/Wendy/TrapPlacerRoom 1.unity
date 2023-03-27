@@ -1046,6 +1046,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 6188035374011240404, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188035374011240405, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6188035374011240407, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
       propertyPath: m_text
       value: Sawblade
@@ -1106,6 +1114,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6188035375098271689, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6188035375098271689, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e05db003e00fcd46aae8e9f1ca752d0, type: 3}
     - target: {fileID: 6481565980631967207, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
       propertyPath: m_text
       value: Spikes
@@ -1169,6 +1185,10 @@ PrefabInstance:
     - target: {fileID: 7497421644161087218, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
       propertyPath: m_Name
       value: ButtonsV
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823865910557566813, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8040882561822581523, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
