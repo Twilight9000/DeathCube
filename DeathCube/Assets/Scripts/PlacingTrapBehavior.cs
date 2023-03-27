@@ -98,6 +98,7 @@ public class PlacingTrapBehavior : MonoBehaviour
 
                 if (Input.GetMouseButtonUp(1))
                 {
+                    hit.collider.gameObject.layer = 0;
                     buttonsLeft--;
 
                     TrapSpawner.trapPos.Add(trapBeingPlaced.transform.position);
