@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3876232622392427320}
   - component: {fileID: 1982832881769891627}
   - component: {fileID: 8238282863741545836}
-  - component: {fileID: 6454363248574959432}
+  - component: {fileID: -7432162566084622856}
   m_Layer: 0
   m_Name: bomb
   m_TagString: Untagged
@@ -98,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6454363248574959432
+--- !u!114 &-7432162566084622856
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180e822b6f06849b790fd2a83d453971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBombUnderMouseControl: 0
-  bombPos: {x: 0, y: 0, z: 0}
-  mouseWheelScrollSpeed: 2
+  moveSpeed: 1
+  zMovementMultiplier: 2
+  zMovementMin: -4
+  zMovementMax: 3
