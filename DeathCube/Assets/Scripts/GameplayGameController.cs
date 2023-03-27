@@ -69,11 +69,15 @@ public class GameplayGameController : MonoBehaviour
         int minutes = (int)(time / 60);
         int seconds = (int)(time % 60);
 
-        timeDisplay.text = "" + minutes + ":" + seconds;
+        
 
         if (seconds < 10)
         {
-            timeDisplay.text += "0";
+            timeDisplay.text = "" + minutes + ":0" + seconds;
+        }
+        else
+        {
+            timeDisplay.text = "" + minutes + ":" + seconds;
         }
 
         //Calls ending if time runs out
@@ -98,7 +102,7 @@ public class GameplayGameController : MonoBehaviour
             willLoadEnding = true;
         }
 
-        //Next, establish whether a player died or not this round. This happens even if the ending scene plays nect, because a tie is possible.
+        //Next, establish whether a player died or not this round. This happens even if the ending scene plays next, because a tie is possible.
         if (noHealth)
         {
             if (currentRunner == 1)
@@ -143,18 +147,19 @@ public class GameplayGameController : MonoBehaviour
         }
 
         //Then, if the game isn't over, change the current runner.
-        if (currentRunner == 1)
-        {
-            PlayerPrefs.SetInt("RunnerPlayer", 2);
-        }
-        else if (currentRunner == 2)
-        {
-            PlayerPrefs.SetInt("RunnerPlayer", 1);
-        }
-        else
-        {
-            Debug.LogError("Programmer-created error - Either Playerprefs is not managing the RunnerPlayer correctly, or something has messed with the variable currentRunner. It should never be set to this value.");
-        }
+            if (currentRunner == 1)
+            {
+                PlayerPrefs.SetInt("RunnerPlayer", 2);
+            }
+            else if (currentRunner == 2)
+            {
+                PlayerPrefs.SetInt("RunnerPlayer", 1);
+            }
+            else
+            {
+                Debug.LogError("Programmer-created error - Either Playerprefs is not managing the RunnerPlayer correctly, or something has messed with the variable currentRunner. It should never be set to this value.");
+            }
+
 
         //Finally, load the appropriate next scene.
         if (willLoadEnding)
