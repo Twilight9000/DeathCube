@@ -6,6 +6,7 @@ public class TrapSpawner : MonoBehaviour
 {
     public static List<GameObject> trapsPlaced = new List<GameObject>();
     public static List<Vector3> trapPos = new List<Vector3>();
+    public static List<Quaternion> trapRot = new List<Quaternion>();
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +33,7 @@ public class TrapSpawner : MonoBehaviour
         {
 
             GameObject t = trapsPlaced[i].gameObject;
-            Instantiate(t, trapPos[i], t.transform.rotation);
+            Instantiate(t, trapPos[i], trapRot[i]);
 
         }
     }
