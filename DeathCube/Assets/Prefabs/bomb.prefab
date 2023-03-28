@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ee2f024bcb3b64bc19d8dfb07c4de401, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,3 +114,6 @@ MonoBehaviour:
   zMovementMultiplier: 2
   zMovementMin: -4
   zMovementMax: 3
+  bombHasBeenPlaced: 0
+  timeUntilExplosion: 2
+  explosionItself: {fileID: 5708606043168770996, guid: 127715815b0b2496191a57df6b8fba75, type: 3}

@@ -9,16 +9,17 @@ public class bombSettingBehaviour : MonoBehaviour
     public GameObject bombToControl;
 
     public float spawnBombAtThisYPosition;
+    public bool canSpawnBombs;
 
     private void Start()
     {
-        
+        canSpawnBombs = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && canSpawnBombs)
         {
             bombToControl = Instantiate(bomb);
 
@@ -29,6 +30,11 @@ public class bombSettingBehaviour : MonoBehaviour
             worldPosition.y += 3.18f;
 
             bombToControl.transform.position = worldPosition;
+        }
+
+        if(bombToControl != null)
+        {
+            canSpawnBombs = bombToControl.GetComponent<bombBehaviour>().bombHasBeenPlaced;
         }
 
         /*
