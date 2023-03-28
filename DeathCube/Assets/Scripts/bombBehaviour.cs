@@ -5,6 +5,9 @@ using UnityEngine;
 public class bombBehaviour : MonoBehaviour
 {
     public float moveSpeed = 1f;
+    public float xMovementMin;
+    public float xMovementMax;
+
     public float zMovementMultiplier = 0.5f;
     public float zMovementMin;
     public float zMovementMax;
@@ -16,9 +19,12 @@ public class bombBehaviour : MonoBehaviour
     public GameObject explosionItself;
 
     private Vector3 lastMousePosition;
+    private GameplayGameController gc;
 
     private void Start()
     {
+        gc = FindObjectOfType<GameplayGameController>();
+
         lastMousePosition = Input.mousePosition;
     }
 
@@ -36,6 +42,14 @@ public class bombBehaviour : MonoBehaviour
             // Update the position of the object with the calculated movement
             Vector3 position = transform.position;
             position.x += xMovement;
+            if(position.x <= xMovementMin)
+            {
+                position.x = xMovementMin;
+            } else if (position.x >= xMovementMax)
+            {
+                position.x = xMovementMax;
+            }
+
             position.z += zMovement;
             if (position.z <= zMovementMin)
             {
@@ -51,9 +65,16 @@ public class bombBehaviour : MonoBehaviour
             lastMousePosition = mousePosition;
         }
 
-        if(Input.GetMouseButtonDown(1))
+        if(Input.GetMouseButtonDown(0))
         {
             bombHasBeenPlaced = true;
+            if(gc.currentRunner == 1)
+            {
+                PlayerPrefs.SetInt("Player2Points", PlayerPrefs.GetInt("Player2Points") - 1);
+            } else
+            {
+                PlayerPrefs.SetInt("Player1Points", PlayerPrefs.GetInt("Player1Points") - 1);
+            }
         }
 
         if(bombHasBeenPlaced)

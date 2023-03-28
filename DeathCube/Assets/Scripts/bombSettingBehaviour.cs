@@ -10,41 +10,59 @@ public class bombSettingBehaviour : MonoBehaviour
 
     public float spawnBombAtThisYPosition;
     public bool canSpawnBombs;
+    public bool toggleBombs;
+
+    private GameplayGameController gc;
 
     private void Start()
     {
-        canSpawnBombs = true;
+        gc = FindObjectOfType<GameplayGameController>();
+
+        if (gc.currentRunner == 1)
+        {
+            if (PlayerPrefs.GetInt("Player2Points") > 0)
+            {
+                canSpawnBombs = true;
+            }
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("Player1Points") > 0)
+            {
+                canSpawnBombs = true;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && canSpawnBombs)
+        if(Input.GetKeyDown(KeyCode.Q) && canSpawnBombs)
         {
             bombToControl = Instantiate(bomb);
 
             Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 10f;
+            mousePosition.z = mousePosition.y / Screen.height - 0.5f;
             mousePosition.y = spawnBombAtThisYPosition;
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            worldPosition.y += 3.18f;
+            worldPosition.y = 0f;
 
             bombToControl.transform.position = worldPosition;
         }
 
-        if(bombToControl != null)
+        if (gc.currentRunner == 1)
         {
-            canSpawnBombs = bombToControl.GetComponent<bombBehaviour>().bombHasBeenPlaced;
+            if (PlayerPrefs.GetInt("Player2Points") > 0 && bombToControl != null)
+            {
+                canSpawnBombs = bombToControl.GetComponent<bombBehaviour>().bombHasBeenPlaced;
+            }
         }
-
-        /*
-        if (Input.GetMouseButtonDown(1))
+        else
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 10f; // Set the Z position of the prefab
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-            spawnParent.transform.position = worldPosition;
-        */
+            if (PlayerPrefs.GetInt("Player1Points") > 0 && bombToControl != null)
+            {
+                canSpawnBombs = bombToControl.GetComponent<bombBehaviour>().bombHasBeenPlaced;
+            }
+        }
     }
 }

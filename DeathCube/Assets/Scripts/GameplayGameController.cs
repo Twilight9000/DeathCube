@@ -30,10 +30,13 @@ public class GameplayGameController : MonoBehaviour
     /// <summary>
     /// If 1, player 1 is runner. Else, player 2 is runner.
     /// </summary>
-    private int currentRunner;
+    public int currentRunner;
 
     [Tooltip("The PlayerHealthBehavior. The PlayerHealthBehavior itself sets istelf to this.")]
     public PlayerHealthBehaviour ph;
+
+    public TMP_Text resourceAmountText;
+    public float currentResourceAmt;
 
 
     /// <summary>
@@ -44,8 +47,8 @@ public class GameplayGameController : MonoBehaviour
     {
         mc = GameObject.Find("MenuController").GetComponent<MenuController>();
         time = startTime;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
 
         currentRunner = PlayerPrefs.GetInt("RunnerPlayer");
 
@@ -55,8 +58,17 @@ public class GameplayGameController : MonoBehaviour
     {
         CountdownTime();
 
-    }
+        currentResourceAmt = PlayerPrefs.GetInt("Player1Points");
 
+        if (currentRunner == 1)
+        {
+            resourceAmountText.text = "Bombs: " + currentResourceAmt.ToString();
+        }
+        else if (currentRunner == 2)
+        {
+            resourceAmountText.text = "Bombs: " + currentResourceAmt.ToString();
+        }
+    }
 
     /// <summary>
     /// Manages how long the scene will run for.

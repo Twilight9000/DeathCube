@@ -21,7 +21,6 @@ public class PlayerHealthBehaviour : MonoBehaviour
         phtb = GameObject.Find("HealthTrack").GetComponent<PlayerHealthTextBehaviour>();
         healthAmount = health;
         gc.ph = this;
-
     }
 
     // Update is called once per frame

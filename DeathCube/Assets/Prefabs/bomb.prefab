@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 754373632173639936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 17, y: 17, z: 17}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,10 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180e822b6f06849b790fd2a83d453971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  zMovementMultiplier: 2
-  zMovementMin: -4
-  zMovementMax: 3
+  moveSpeed: 10
+  xMovementMin: -70
+  xMovementMax: 70
+  zMovementMultiplier: 10
+  zMovementMin: -62
+  zMovementMax: 62
   bombHasBeenPlaced: 0
   timeUntilExplosion: 2
   explosionItself: {fileID: 5708606043168770996, guid: 127715815b0b2496191a57df6b8fba75, type: 3}

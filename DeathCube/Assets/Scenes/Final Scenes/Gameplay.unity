@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -509,21 +509,25 @@ PrefabInstance:
       propertyPath: timeDisplay
       value: 
       objectReference: {fileID: 1532633148}
+    - target: {fileID: 8031933170567942212, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
+      propertyPath: resourceAmountText
+      value: 
+      objectReference: {fileID: 1543709927}
     - target: {fileID: 8031933170567942213, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8031933170567942213, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.028536
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8031933170567942213, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -67.74228
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8031933170567942213, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 152.36415
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8031933170567942213, guid: 26c3409ad0d30bc459c6bef938253d34, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1220,6 +1224,17 @@ MonoBehaviour:
 --- !u!114 &1532633148 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8259047801592684905, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
+  m_PrefabInstance: {fileID: 1109285916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1543709927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7152356574847559214, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
   m_PrefabInstance: {fileID: 1109285916}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
