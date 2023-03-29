@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PitfallBehaviour : TrapBehaviour
@@ -120,6 +119,9 @@ public class PitfallBehaviour : TrapBehaviour
         door1.transform.rotation = new Quaternion(0, 0, 0, 0);
         door2.transform.rotation = new Quaternion(0, 0, 0, 0);
 
+        var death = gameObject.transform.GetChild(2);
+        death.gameObject.SetActive(false);
+
         down = false;
         initial = true;
 
@@ -135,11 +137,17 @@ public class PitfallBehaviour : TrapBehaviour
 
         down = true;
 
+        if (down == true)
+        {
+            var death = gameObject.transform.GetChild(2);
+            death.gameObject.SetActive(true);
+        }
+
         StartCoroutine(FlipDown());
 
         yield return null;
 
-        
+
         Invoke("CDTimer", cd);
         yield return null;
 

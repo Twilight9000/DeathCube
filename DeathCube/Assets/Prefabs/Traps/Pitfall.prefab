@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2841918713150861419
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notOnCd: 1
-  cd: 4
+  cd: 8
+  customRotation: 0
   door1: {fileID: 2841918713819501150}
   door2: {fileID: 2841918713779674877}
   rot: 10

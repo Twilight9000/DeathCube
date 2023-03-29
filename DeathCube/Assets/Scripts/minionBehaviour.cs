@@ -9,20 +9,52 @@ public class minionBehaviour : MonoBehaviour
     public GameObject target;
     public float timeUntilMinionIsDestroyed;
 
+
+    public float jumpForce;
+    public float jumpTimer;
+    public float weighDownAmount;
+    private float weighInitial;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        weighInitial = rb.mass;
+
         target = GameObject.FindGameObjectWithTag("Player");
+
+        jumpTimer = (Random.Range(5f, 7f));
 
         Destroy(gameObject, timeUntilMinionIsDestroyed);
     }
 
+    private void Update()
+    {
+        jumpTimer -= Time.deltaTime;
+
+        if (jumpTimer <= 0)
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+            jumpTimer = (Random.Range(2f, 5f));
+            Invoke("WeighDown", 0.25f);
+        }
+    }
     private void FixedUpdate()
     {
-        if(target != null)
+        if (target != null)
         {
             rb.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
+    }
+
+    public void WeighDown()
+    {
+        rb.mass = weighDownAmount;
+        Invoke("InitialMass", 0.75f);
+    }
+
+    public void InitialMass()
+    {
+        rb.mass = weighInitial;
     }
 
     /*
