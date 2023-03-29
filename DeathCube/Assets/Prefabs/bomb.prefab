@@ -110,10 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180e822b6f06849b790fd2a83d453971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   xMovementMin: -70
   xMovementMax: 70
-  zMovementMultiplier: 10
+  zMovementMultiplier: 12
   zMovementMin: -62
   zMovementMax: 62
   bombHasBeenPlaced: 0
