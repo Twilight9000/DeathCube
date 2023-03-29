@@ -34,6 +34,18 @@ public class GunBehaviour : TrapBehaviour
         transformInitial = transform.position;
         rotationInitial = transform.rotation;
         spinTimingInitial = spinTiming;
+        if (rotationInitial.eulerAngles.y == 90)
+        {
+            bulletRotation.eulerAngles = new Vector3(90,0,0);
+        }
+        else if(rotationInitial.eulerAngles.x == 0)
+        {
+            bulletRotation.eulerAngles = new Vector3(0, 90, 90);
+        }
+        else
+        {
+            bulletRotation.eulerAngles = new Vector3(0, 90, 270);
+        }
     }
 
     // Update is called once per frame
@@ -95,7 +107,7 @@ public class GunBehaviour : TrapBehaviour
 
             if (bulletSpawnTime <= 0 && bulletsSpawned < 3 && spinTiming <= -0.5f)
             {
-
+                //bulletRotation.eulerAngles = transform.rotation.eulerAngles;
                 Instantiate(bullet, bulletSp.transform.position, bulletRotation);
                 bulletSpawnTime = bulletSpawnTimeInitial;
                 bulletsSpawned++;
