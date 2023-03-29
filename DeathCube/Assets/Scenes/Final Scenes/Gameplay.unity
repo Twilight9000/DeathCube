@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 964113554, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -16.595
+      value: -16.59497
       objectReference: {fileID: 0}
     - target: {fileID: 1214850112, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
@@ -826,11 +826,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2845810235843690015, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 71.9147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2845810235843690015, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2845810235843690015, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -850,11 +850,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3129207742750577711, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 71.9147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3129207742750577711, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3129207742750577711, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -874,11 +874,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3574842482823997906, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 71.9147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3574842482823997906, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3574842482823997906, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -898,11 +898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5825072057182069292, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 71.9147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825072057182069292, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5825072057182069292, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1114,11 +1114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8354463594894911160, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_ChildControlWidth
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8354463594894911160, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_ChildControlHeight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8354463594894911160, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_ChildForceExpandWidth
@@ -1138,11 +1138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9195983881039695917, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 71.9147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195983881039695917, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 72.01051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195983881039695917, guid: 411f740d7c7739141a33dc64163b2ad0, type: 3}
       propertyPath: m_AnchoredPosition.x
