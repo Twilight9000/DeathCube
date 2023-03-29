@@ -1173,7 +1173,7 @@ Transform:
   m_GameObject: {fileID: 8408510377356852163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.68, y: 29.2, z: 97.43}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8408510376222846418}
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notOnCd: 1
-  cd: 8
+  cd: 5
   customRotation: 1
   laser: {fileID: 8408510376908170053}
   firePoint: {fileID: 8408510376908170052}

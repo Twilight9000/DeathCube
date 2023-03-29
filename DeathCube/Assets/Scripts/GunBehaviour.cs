@@ -86,7 +86,7 @@ public class GunBehaviour : TrapBehaviour
 
             if (spinTiming >= 0)
             {
-                transform.RotateAround(baseHinge.transform.position, Vector3.forward, spinSpeed * Time.deltaTime);
+                transform.RotateAround(baseHinge.transform.position, baseHinge.transform.forward, spinSpeed * Time.deltaTime);
             }
 
 

@@ -1726,6 +1726,7 @@ MonoBehaviour:
   - {fileID: 8477985430849540718, guid: 7ca15011947ee4dab88bd061bc2a5ded, type: 3}
   - {fileID: 1155420764992709222, guid: 3d572255288da9e4fad05f8a9d7c5edf, type: 3}
   - {fileID: 1155420764992709222, guid: ca0a1ab7e7e5c724dbd99463bcd0b09c, type: 3}
+  - {fileID: 1155420764992709222, guid: b68f0cb817e214b75a4e286cbb9d2946, type: 3}
   placements:
   - {x: -300, y: 125, z: 0}
   - {x: 0, y: 125, z: 0}
