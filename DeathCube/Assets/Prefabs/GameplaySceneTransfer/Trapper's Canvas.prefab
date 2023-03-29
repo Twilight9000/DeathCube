@@ -687,6 +687,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 8259047801514484492}
     m_Modifications:
     - target: {fileID: 103314886759436128, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_Spacing
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 103314886759436128, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 103314886759436128, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 103314886759436128, guid: 22894418cfdc7834b90574b5c0770969, type: 3}
       propertyPath: m_ChildControlWidth
       value: 1
       objectReference: {fileID: 0}
