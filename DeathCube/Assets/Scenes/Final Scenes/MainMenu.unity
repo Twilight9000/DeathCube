@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -872,10 +872,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-Select traps and right click to place.
+  m_text: '-Uses keyboard and mouse.
 
-    -Use the number keys to activate
-    traps.
+    -Select traps and right click to place.
+
+    -Use
+    the number keys to activate traps.
+
+    -Q toggles a bomb and left click places
+    it.
 
     -Try to kill the runner as fast as possible.'
   m_isRightToLeft: 0
@@ -2093,11 +2098,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '-WASD to move
+  m_text: '-Uses the controller.
 
-    -Space to jump
+    -Left stick to move.
 
-    -Survive as long as possible'
+    -South button (A)
+    to jump.
+
+    -Right bumper to slide (is very buggy).
+
+    -Survive as long as
+    possible.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
