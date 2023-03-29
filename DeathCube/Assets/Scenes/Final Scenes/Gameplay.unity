@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,6 +346,14 @@ PrefabInstance:
       propertyPath: phtb
       value: 
       objectReference: {fileID: 1109285917}
+    - target: {fileID: 1092213511, guid: 8d4d26e94363c1d49877e96181a8d7a9, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092213511, guid: 8d4d26e94363c1d49877e96181a8d7a9, type: 3}
+      propertyPath: groundCheckDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 480496857250357596, guid: 8d4d26e94363c1d49877e96181a8d7a9, type: 3}
       propertyPath: m_RootOrder
       value: 1
