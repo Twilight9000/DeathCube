@@ -11,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveVector = Vector3.zero;
     public float moveSpeed = 10f;
     public float jumpForce = 50f;
-    private bool jumped = false;
+    public float groundCheckDistance = 5f;
+    public LayerMask groundLayer;
+    private bool canJump = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,9 +37,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (jumped)
+
+        // Check if the player is grounded
+        if (Physics.Raycast(transform.position, Vector3.down, groundCheckDistance, groundLayer))
         {
-            jumped = false;
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
         }
     }
 
@@ -57,10 +65,10 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJumpPerformed(InputAction.CallbackContext context)
     {
-        if (!jumped)
+        if (canJump)
         {
-            jumped = true;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
+
 }

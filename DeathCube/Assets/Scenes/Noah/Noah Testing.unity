@@ -560,6 +560,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   jumpForce: 10
+  groundCheckDistance: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!54 &1071606156
 Rigidbody:
   m_ObjectHideFlags: 0

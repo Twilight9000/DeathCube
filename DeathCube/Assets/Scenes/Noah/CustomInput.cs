@@ -44,6 +44,15 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""56516b49-6cd0-4f07-819e-4277e6fcf1ce"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -266,6 +275,28 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""207d8736-768c-46da-b2fa-d1cdd3fcbf37"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59b34dc0-c76a-42a8-8a23-7df93074db40"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -276,6 +307,7 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Slide = m_Player.FindAction("Slide", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,12 +369,14 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Slide;
     public struct PlayerActions
     {
         private @CustomInput m_Wrapper;
         public PlayerActions(@CustomInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Slide => m_Wrapper.m_Player_Slide;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -358,6 +392,9 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Slide.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlide;
+                @Slide.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlide;
+                @Slide.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSlide;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -368,6 +405,9 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Slide.started += instance.OnSlide;
+                @Slide.performed += instance.OnSlide;
+                @Slide.canceled += instance.OnSlide;
             }
         }
     }
@@ -376,5 +416,6 @@ public partial class @CustomInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
 }
