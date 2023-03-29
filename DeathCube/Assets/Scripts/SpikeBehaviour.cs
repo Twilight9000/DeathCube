@@ -43,6 +43,34 @@ public class SpikeBehaviour : TrapBehaviour
         StartCoroutine(SpikesDown());
     }*/
 
+    public override IEnumerator ActivateTrap()
+    {
+        notOnCd = false;
+        spikes.SetActive(true);
+
+        while (spikes.transform.position.y < -11f)
+        {
+
+            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -11f, spikes.transform.position.z), speed);
+
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        while (spikes.transform.position.y < 0)
+        {
+
+            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, 0, spikes.transform.position.z), speed);
+
+            yield return new WaitForSeconds(0.01f);
+
+        }
+
+        yield return new WaitForSeconds(1.5f);
+
+        StartCoroutine(SpikesDown());
+    }
+
     public IEnumerator SpikesDown()
     {
 
@@ -60,33 +88,5 @@ public class SpikeBehaviour : TrapBehaviour
         spikes.SetActive(false);
         yield return null;
 
-    }
-
-    public override IEnumerator ActivateTrap()
-    {
-        notOnCd = false;
-        spikes.SetActive(true);
-
-        while (spikes.transform.position.y < -11f)
-        {
-
-            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, -11f, spikes.transform.position.z), speed);
-
-        }
-
-        yield return new WaitForSeconds(2);
-
-        while (spikes.transform.position.y < 0)
-        {
-
-            spikes.transform.position = Vector3.MoveTowards(spikes.transform.position, new Vector3(spikes.transform.position.x, 0, spikes.transform.position.z), speed);
-
-            yield return new WaitForFixedUpdate();
-
-        }
-
-        yield return new WaitForSeconds(3);
-
-        StartCoroutine(SpikesDown());
     }
 }
