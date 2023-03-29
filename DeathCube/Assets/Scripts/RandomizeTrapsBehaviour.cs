@@ -46,7 +46,7 @@ public class RandomizeTrapsBehaviour : MonoBehaviour
                 num = 3;
                 g.GetComponent<Button>().onClick.AddListener(() => thing(num));
             }
-            else if (g.name.Contains("Hammer"))
+            else if (g.name.Contains("Sniper"))
             {
                 num = 4;
                 g.GetComponent<Button>().onClick.AddListener(() => thing(num));
@@ -66,11 +66,7 @@ public class RandomizeTrapsBehaviour : MonoBehaviour
                 num = 7;
                 g.GetComponent<Button>().onClick.AddListener(() => thing(num));
             }
-            else if (g.name.Contains("Sniper"))
-            {
-                num = 8;
-                g.GetComponent<Button>().onClick.AddListener(() => thing(num));
-            }
+           
         }
 
     }
