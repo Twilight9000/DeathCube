@@ -1157,7 +1157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8408510377356852160}
   - component: {fileID: 8408510377356852161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,6 +1194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199d72f4ff2014e4aad2444839844318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  notOnCd: 1
+  cd: 8
+  customRotation: 1
   laser: {fileID: 8408510376908170053}
   firePoint: {fileID: 8408510376908170052}
   sniperBullet: {fileID: 2970675441890166219, guid: 601c33aa2de120f46aa49b4daff83a71, type: 3}
