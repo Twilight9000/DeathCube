@@ -7,6 +7,7 @@ TagManager:
   - canHurtRunner
   - Wind
   - Floor
+  - Player Body
   layers:
   - Default
   - TransparentFX

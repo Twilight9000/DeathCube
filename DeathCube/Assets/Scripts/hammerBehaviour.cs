@@ -12,18 +12,21 @@ public class hammerBehaviour : TrapBehaviour
     public float hammerRotationSpeed;
     public float hammerRotationAmt;
 
+    public bool activated;
+    private bool unActivate = false;
+
     // Update is called once per frame
     void Update()
     {
-        canHammerSwingDown = !isHammerSwingingDown;
+        /* canHammerSwingDown = !isHammerSwingingDown;
 
         if(Input.GetKeyDown(KeyCode.A) && canHammerSwingDown)
         {
             StartCoroutine(spinHammer());
-        }
+        } */
     }
 
-    public IEnumerator spinHammer()
+   /* public IEnumerator spinHammer()
     {
         isHammerSwingingDown = true;
         for (int i = 0; i < hammerRotationAmt; i++)
@@ -34,7 +37,7 @@ public class hammerBehaviour : TrapBehaviour
         transform.eulerAngles = new Vector3(minimumHammerRotation, transform.rotation.y, transform.rotation.z);
         yield return new WaitForSeconds(.001f);
         StartCoroutine(spinHammerBackUp());
-    }
+    } */
 
     public IEnumerator spinHammerBackUp()
     {
@@ -46,12 +49,37 @@ public class hammerBehaviour : TrapBehaviour
         yield return new WaitForSeconds(.001f);
         transform.eulerAngles = new Vector3(maximumHammerRotation, transform.rotation.y, transform.rotation.z);
         isHammerSwingingDown = false;
+        unActivate = true;
     }
 
     public override IEnumerator ActivateTrap()
     {
         notOnCd = false;
-        Invoke("CDTimer", cd);
-        yield return null;
+        activated = true;
+
+        while (activated)
+        {
+            isHammerSwingingDown = true;
+            if (isHammerSwingingDown == true)
+            {
+                for (int i = 0; i < hammerRotationAmt; i++)
+                {
+                    transform.Rotate(hammerRotationSpeed * Time.deltaTime, transform.rotation.y, transform.rotation.z);
+                    yield return new WaitForSeconds(0.005f);
+                }
+                transform.eulerAngles = new Vector3(minimumHammerRotation, transform.rotation.y, transform.rotation.z);
+
+                StartCoroutine(spinHammerBackUp());
+            }
+          
+
+        }
+
+        if (unActivate == true)
+        {
+            Invoke("CDTimer", cd);
+            yield return null;
+        }
+
     }
 }

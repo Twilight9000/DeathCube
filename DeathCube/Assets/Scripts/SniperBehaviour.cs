@@ -90,7 +90,7 @@ public class SniperBehaviour : TrapBehaviour
 
                 if (shot != true)
                 {
-                    var player = GameObject.FindGameObjectWithTag("Player");
+                    var player = GameObject.FindGameObjectWithTag("Player Body");
                     var playerTacking = player.transform.position;
                     //print(playerTacking);
 
